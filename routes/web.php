@@ -17,8 +17,10 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware('cookie-consent')->group(function(){
+    Route::get('/',[HomeController::class,'index'])->name('home.index');
+});
 
-Route::get('/',[HomeController::class,'index'])->name('home.index');
 
 Route::middleware('token.validator')->group(function(){
     Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard.index');

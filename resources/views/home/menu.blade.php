@@ -3,27 +3,27 @@
         <h3>Les tomates</h3>
     <article class="pizza-tomate">
         <ul>
-            <li>
+            <li class="fade from-top">
                 <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs,foe,zpoef,efzef</p>
             </li>
-            <li>
+            <li class="fade from-top">
             <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs</p>
             </li>
-            <li>
+            <li class="fade from-top">
             <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs</p>
             </li>
-            <li>
+            <li class="fade from-top">
             <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs</p>
             </li>
-            <li>
+            <li class="fade from-top">
             <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs</p>
             </li>      
-            <li>
+            <li class="fade from-top">
             <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs</p>
             </li>
@@ -32,27 +32,27 @@
     <article class="pizza-blanche">
         <h3>Les blanches</h3>
         <ul>
-        <li>
-                <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
-                <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs,foe,zpoef,efzef</p>
+        <li class="fade from-top">
+            <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
+            <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs,foe,zpoef,efzef</p>
             </li>
-            <li>
+            <li class="fade from-top">
             <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs</p>
             </li>
-            <li>
+            <li class="fade from-top">
             <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs</p>
             </li>
-            <li>
+            <li class="fade from-top">
             <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs</p>
             </li>
-            <li>
+            <li class="fade from-top">
             <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs</p>
             </li>      
-            <li>
+            <li class="fade from-top">
             <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs</p>
             </li>
@@ -64,19 +64,19 @@
     <article class="desserts">
     <h3>Les desserts</h3>
         <ul>
-            <li>
+            <li class="fade from-top">
                 <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs,foe,zpoef,efzef</p>
             </li>
-            <li>
+            <li class="fade from-top">
             <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs</p>
             </li>
-            <li>
+            <li class="fade from-top">
             <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs</p>
             </li>
-            <li>
+            <li class="fade from-top">
             <p><img src="https://via.placeholder.com/150" alt=""> - prix</p>
                 <p class="ingredient-details">Sauce tomate, mozzarela,jambon blanc, champignon blancs</p>
             </li>
@@ -85,29 +85,29 @@
     <article class="boissons">
         <h3>Les boissons</h3>
         <ul>
-            <li>
-                <p>Nom - prix</p>
+            <li class="fade from-top">
+                <p class="text-center">Nom - prix</p>
             </li>
-            <li>
-                <p>Nom - prix</p>
+            <li class="fade from-top">
+                <p class="text-center">Nom - prix</p>
             </li>
-            <li>
-                <p>Nom - prix</p>
+            <li class="fade from-top">
+                <p class="text-center">Nom - prix</p>
             </li>
-            <li>
-                <p>Nom - prix</p>
+            <li class="fade from-top">
+                <p class="text-center">Nom - prix</p>
             </li>
-            <li>
-                <p>Nom - prix</p>
+            <li class="fade from-top">
+                <p class="text-center">Nom - prix</p>
             </li>
-            <li>
-                <p>Nom - prix</p>
+            <li class="fade from-top">
+                <p class="text-center">Nom - prix</p>
             </li>
-            <li>
-                <p>Nom - prix</p>
+            <li class="fade from-top">
+                <p class="text-center">Nom - prix</p>
             </li>
-            <li>
-                <p>Nom - prix</p>
+            <li class="fade from-top">
+                <p class="text-center">Nom - prix</p>
             </li>
         </ul>
     </article>

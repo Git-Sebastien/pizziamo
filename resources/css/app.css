@@ -224,10 +224,27 @@ article {
 
 .main-header nav ul li {
     list-style: none;
+    text-decoration: underline;
+    font-size: 25px;
 }
 
 .carousel {
     max-height: 681px;
+}
+
+.carousel-caption h4 {
+    font-size: 70px;
+    color: black;
+}
+
+.carousel-caption p {
+    font-size: 50px;
+    color: black;
+}
+
+.carousel-caption {
+    bottom: 7.25rem;
+    background-color: aliceblue;
 }
 
 .carousel .carousel-item {
@@ -324,6 +341,10 @@ article {
     width: 100%;
 }
 
+.boissons ul li {
+    width: 70%;
+}
+
 .desserts ul li {
     width: 100%;
 }
@@ -352,6 +373,7 @@ h2 {
     text-align: center;
     color: black;
     font-size: 30px;
+    text-decoration: underline;
 }
 
 .img-italian-flag {
@@ -361,6 +383,39 @@ h2 {
 
 .ingredient-details {
     width: 86%;
+}
+
+
+/* Effect with intersection observer */
+
+.fade {
+    opacity: 0;
+    transition: opacity 730ms ease-in-out;
+}
+
+.fade.appear {
+    opacity: 1;
+}
+
+.from-top {
+    transform: translateY(-10%);
+}
+
+.from-left {
+    transform: translateX(-150%)
+}
+
+.from-left.appear {
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    transition-delay: 100ms;
+}
+
+.from-top.appear {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform .5s ease-in-out, opacity .5s ease-in-out;
 }
 
 @keyframes scale {
@@ -418,7 +473,7 @@ h2 {
         width: 40%;
     }
     .boissons ul li {
-        width: 30%;
+        width: 22%;
     }
 }
 

@@ -1,4 +1,4 @@
-<section class="presentation mt-4">
+<section class="presentation mt-4 fade from-top">
     <h2>Bienvenuto al pizziamo !</h2>
     <article>
         <p>
