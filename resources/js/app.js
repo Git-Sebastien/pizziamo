@@ -10,8 +10,23 @@ Alpine.start();
 
 const burger = document.getElementById('burger');
 const mainHeader = document.querySelector('#main-header')
-const mainNav = document.querySelector('.main-nav')
 const topNav = document.querySelector('#top-nav')
+const pizzaTitle = document.querySelectorAll('#pizza-title')
+const pizza_li = document.querySelectorAll('#pizza-list')
+
+
+
+console.log(window.innerWidth)
+if (window.innerWidth <= 768) {
+    pizzaTitle.forEach((element, indexTitle) => {
+        element.addEventListener('click', () => {
+            pizza_li.forEach((element, indexLi) => {
+                if (indexTitle == indexLi)
+                    element.classList.toggle('show')
+            })
+        })
+    })
+}
 
 burger.addEventListener('click', function() {
     burger.classList.toggle('active');

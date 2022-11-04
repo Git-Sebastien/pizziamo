@@ -1,8 +1,6 @@
-let url = 'http://localhost:8000/fetch-data';
+let url = 'http://localhost:8000/pizzas';
 let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-let input = document.querySelector('#pizza-ingredient');
-let select = document.querySelector('#select');
-let ingredient_select = document.querySelector('#ingredient-select')
+let pizzaList = document.querySelectorAll('.pizza-tomate ul li')
 
 window.addEventListener('load', (event) => {
     fetch(url, {
@@ -12,19 +10,12 @@ window.addEventListener('load', (event) => {
                 "X-Requested-With": "XMLHttpRequest",
                 "X-CSRF-TOKEN": token
             },
-            method: 'post',
-            body: JSON.stringify({
-                ingredient_name: event.target.value
-            })
-        })
-        .then(response => response.json())
+        }).then(response => response.json())
         .then(data => {
+            let array = [];
             console.log(data)
-
-            for (let datas of data) {
-                if (!data.includes(datas.ingredient_name)) {
-                    ingredient_select.innerHTML += `<option value="${datas.id}">${datas.ingredient_name}</option>`
-                }
-            }
+                // for (let [index, value] of data.entries()) {
+                //     console.log(value)
+                // }
         })
 })

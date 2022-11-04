@@ -4,8 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="description" content="Bienvenue chez Pizziamo, votre nouvelle pizzaria à la ravoire vous propose un large choix de produit frais et une carte de pizza italienne cuite aux feux à boix. Décrouvrez aussi un large choix de dessert et apéritifs le tous fais avec humour dans la joie et la bonne humeur !">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>@yield('title')</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -16,6 +17,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Edu+QLD+Beginner:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Kite+One&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
         <!-- JavaScript Bundle with Popper -->
@@ -25,9 +28,6 @@
     <body class="font-sans antialiased main-site">
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
-          
-
-
             <!-- Page Content -->
             <main>
             @yield('home')

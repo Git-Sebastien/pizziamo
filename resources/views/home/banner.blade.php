@@ -11,7 +11,7 @@
             <img src="{{ asset('images/pizza_share.jpg') }}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h4>Pizziamo</h4>
-                <p>Partager nos pizza généreuses</p>
+                <p>Partager nos pizzas généreuses</p>
             </div>
         </div>
         <div class="carousel-item">

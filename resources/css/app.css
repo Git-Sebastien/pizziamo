@@ -1,484 +1,641 @@
-/* @tailwind base;
+    /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
-
-
-/* Dashboard */
-
-.list-group-item {
-    box-sizing: initial;
-}
-
-.burger {
-    position: sticky;
-    margin-right: -16px;
-    top: 43px;
-    left: 40rem;
-    visibility: visible;
-    width: 29px;
-    height: 50px;
-    cursor: pointer;
-}
-
-.burger span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    right: 50%;
-    background-color: white;
-    position: absolute;
-    top: 15%;
-    transform: translateY(-50%);
-    transition: background-color .2s ease-in-out;
-}
-
-.burger span::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: red;
-    transition: transform .4s ease-in-out;
-}
-
-.burger span::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: green;
-    transition: transform .4s ease-in-out;
-}
-
-.burger span::before {
-    transform: translateY(15px);
-    top: -5px;
-}
-
-.burger span::after {
-    transform: translateY(-15px);
-    top: 5px;
-}
-
-.burger.active span {
-    background-color: transparent;
-}
-
-.burger.active span::before {
-    transform: translate(0px, 5px) rotate(45deg);
-}
-
-.burger.active span::after {
-    transform: translate(0px, -5px) rotate(133deg);
-}
-
-.list-group-item p {
-    display: inline;
-    font-weight: bold;
-}
-
-.main-nav {
-    position: absolute;
-    transform: translateX(-100vw);
-    transition: transform .5s;
-    z-index: 1;
-    width: 100vw;
-    height: 60%;
-}
-
-.main-nav.show {
-    transform: translateX(0);
-    transition: transform .5s;
-}
-
-.recap {
-    background-color: aqua;
-}
-
-.row {
-    --bs-gutter-x: 0
-}
-
-.dashboard {
-    column-gap: 6rem;
-    height: 100%;
-    background-color: seashell;
-    ;
-}
-
-.recap-all {
-    width: 90vw;
-    margin: 0 auto;
-}
-
-h2 {
-    text-align: center;
-}
-
-.main-nav li {
-    text-align: center;
-}
-
-.list-group-item {
-    padding: 14px
-}
-
-.pizza-name {
-    display: block;
-    margin: auto;
-}
-
-input[type=checkbox] {
-    transform: scale(1.9);
-    margin-right: 10px;
-    margin-top: 10px;
-    font-size: 19px;
-}
-
-.wrapper {
-    padding: 5rem;
-}
-
-.ingredient-list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
-
-.pizza-recap ul {
-    display: flex;
-}
-
-.recap-all {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: right;
-}
-
-.boissons-recap,
-.dessert-recap {
-    background-color: seashell;
-}
-
-.dashboard-body {
-    background-color: seashell;
-}
-
-article {
-    flex: auto;
-}
-
-@media screen and (min-width:768px) {
+    /* Dashboard */
+    
+    .list-group-item {
+        box-sizing: initial;
+    }
+    
+    .burger {
+        position: sticky;
+        margin-right: -16px;
+        top: 43px;
+        left: 40rem;
+        visibility: visible;
+        width: 29px;
+        height: 50px;
+        cursor: pointer;
+    }
+    
+    .burger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        right: 50%;
+        background-color: white;
+        position: absolute;
+        top: 15%;
+        transform: translateY(-50%);
+        transition: background-color .2s ease-in-out;
+    }
+    
+    .burger span::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: red;
+        transition: transform .4s ease-in-out;
+    }
+    
+    .burger span::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: green;
+        transition: transform .4s ease-in-out;
+    }
+    
+    .burger span::before {
+        transform: translateY(15px);
+        top: -5px;
+    }
+    
+    .burger span::after {
+        transform: translateY(-15px);
+        top: 5px;
+    }
+    
+    .burger.active span {
+        background-color: transparent;
+    }
+    
+    .burger.active span::before {
+        transform: translate(0px, 5px) rotate(45deg);
+    }
+    
+    .burger.active span::after {
+        transform: translate(0px, -5px) rotate(133deg);
+    }
+    
+    .list-group-item p {
+        display: inline;
+        font-weight: bold;
+    }
+    
     .main-nav {
-        transform: translate(0);
-        transition: none;
-        position: fixed;
-        width: 18vw;
+        position: absolute;
+        transform: translateX(-100vw);
+        transition: transform .5s;
+        z-index: 1;
+        width: 100vw;
+        height: 60%;
     }
+    
+    .main-nav.show {
+        transform: translateX(0);
+        transition: transform .5s;
+    }
+    
+    .recap {
+        background-color: aqua;
+    }
+    
+    .row {
+        --bs-gutter-x: 0
+    }
+    
+    .dashboard {
+        column-gap: 6rem;
+        height: 100%;
+        background-color: seashell;
+        ;
+    }
+    
     .recap-all {
-        width: 67vw;
+        width: 90vw;
+        margin: 0 auto;
     }
-    .drink {
-        flex-basis: max-content;
+    
+    h2 {
+        text-align: center;
     }
-}
-
-
-/* Website */
-
-.logo {
-    position: fixed;
-    top: 9px;
-    left: 10px;
-    z-index: 300;
-}
-
-.main-site {
-    font-family: 'Marck Script', cursive;
-    font-size: 25px;
-    padding: 1rem;
-}
-
-.main-header {
-    position: fixed;
-    top: 1px;
-    height: 300px;
-    z-index: 2;
-    width: 100%;
-    /* line-height: 2rem; */
-    background-color: aliceblue;
-    transform: translateY(-251px);
-    transition: transform .5s;
-}
-
-.main-header nav ul {
-    text-align: center;
-    margin-top: 4rem;
-    line-height: 3rem;
-    /* display: flex; */
-    /* justify-content: center; */
-    -moz-column-gap: 3rem;
-    column-gap: 3rem;
-    flex-direction: column;
-}
-
-.main-header nav ul li {
-    list-style: none;
-    text-decoration: underline;
-    font-size: 25px;
-}
-
-.carousel {
-    max-height: 681px;
-}
-
-.carousel-caption h4 {
-    font-size: 70px;
-    color: black;
-}
-
-.carousel-caption p {
-    font-size: 50px;
-    color: black;
-}
-
-.carousel-caption {
-    bottom: 7.25rem;
-    background-color: aliceblue;
-}
-
-.carousel .carousel-item {
-    height: 681px;
-    animation: scale 14s
-}
-
-.carousel-item img {
-    object-fit: cover;
-    object-position: center;
-    height: inherit;
-}
-
-.top-nav {
-    display: none;
-}
-
-.main-site .burger {
-    position: sticky;
-    margin-right: -9px;
-    margin-top: -3rem;
-    top: 24px;
-    left: 46rem;
-    visibility: visible;
-    width: 35px;
-    height: 34px;
-    cursor: pointer;
-    z-index: 300;
-}
-
-.main-header.show {
-    transform: translateX(0);
-    transition: transform .5s;
-}
-
-.main-header.show ul li {
-    opacity: 0;
-    animation: .7s ease-in-out slide-in forwards;
-}
-
-.main-header.show ul>li:nth-child(1) {
-    animation-delay: 100ms;
-}
-
-.main-header.show ul>li:nth-child(2) {
-    animation-delay: 200ms;
-}
-
-.main-header.show ul>li:nth-child(3) {
-    animation-delay: 300ms;
-}
-
-.main-header.show ul>li:nth-child(4) {
-    animation-delay: 400ms;
-}
-
-.img {
-    width: 50%;
-    margin: auto;
-}
-
-.img img {
-    max-width: 100%;
-    height: 200px;
-}
-
-.menu {
-    background: url('../../public/images/vegetable.jpg');
+    
+    .main-nav li {
+        text-align: center;
+    }
+    
+    .list-group-item {
+        padding: 14px
+    }
+    
+    .pizza-name {
+        display: block;
+        margin: auto;
+    }
+    
+    input[type=checkbox] {
+        transform: scale(1.9);
+        margin-right: 10px;
+        margin-top: 10px;
+        font-size: 19px;
+    }
+    
+    .wrapper {
+        padding: 5rem;
+    }
+    
+    .ingredient-list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    
+    .pizza-recap ul {
+        display: flex;
+    }
+    
+    .recap-all {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: right;
+    }
+    
+    .boissons-recap,
+    .dessert-recap {
+        background-color: seashell;
+    }
+    
+    .dashboard-body {
+        background-color: seashell;
+    }
+    
+    article {
+        flex: auto;
+    }
+    
+    @media screen and (min-width:768px) {
+        .main-nav {
+            transform: translate(0);
+            transition: none;
+            position: fixed;
+            width: 18vw;
+        }
+        .recap-all {
+            width: 67vw;
+        }
+        .drink {
+            flex-basis: max-content;
+        }
+    }
+    /* Website */
+    
+    .logo {
+        position: fixed;
+        top: 9px;
+        left: 10px;
+        z-index: 300;
+    }
+    
+    .main-site {
+        font-size: 25px;
+        padding: 1rem;
+    }
+    
+    .main-header {
+        position: fixed;
+        top: 1px;
+        height: 300px;
+        z-index: 2;
+        width: 100%;
+        /* line-height: 2rem; */
+        background-color: aliceblue;
+        transform: translateY(-251px);
+        transition: transform .5s;
+    }
+    
+    .main-header nav ul {
+        text-align: center;
+        margin-top: 4rem;
+        line-height: 3rem;
+        /* display: flex; */
+        /* justify-content: center; */
+        -moz-column-gap: 3rem;
+        column-gap: 3rem;
+        flex-direction: column;
+    }
+    
+    .main-header nav ul li {
+        list-style: none;
+        text-decoration: underline;
+        font-size: 30px;
+        font-family: 'Marck Script', cursive;
+    }
+    
+    .carousel {
+        max-height: 681px;
+    }
+    
+    .carousel-caption h4 {
+        font-size: 48px;
+        color: black;
+        font-family: 'Marck Script', cursive;
+    }
+    
+    .carousel-caption p {
+        font-size: 27px;
+        color: black;
+        font-family: 'Kite One', sans-serif;
+    }
+    
+    .carousel-caption {
+        bottom: 7.25rem;
+        background-color: aliceblue;
+    }
+    
+    .carousel .carousel-item {
+        height: 433px;
+        animation: scale 14s
+    }
+    
+    .carousel-item img {
+        object-fit: cover;
+        object-position: center;
+        height: inherit;
+    }
+    
+    .top-nav {
+        display: none;
+    }
+    
+    .main-site .burger {
+        position: sticky;
+        margin-right: -9px;
+        margin-top: -3rem;
+        top: 24px;
+        left: 46rem;
+        visibility: visible;
+        width: 35px;
+        height: 34px;
+        cursor: pointer;
+        z-index: 300;
+    }
+    
+    .main-header.show {
+        transform: translateX(0);
+        transition: transform .5s;
+    }
+    
+    .main-header.show ul li {
+        opacity: 0;
+        animation: .7s ease-in-out slide-in forwards;
+    }
+    
+    .main-header.show ul>li:nth-child(1) {
+        animation-delay: 100ms;
+    }
+    
+    .main-header.show ul>li:nth-child(2) {
+        animation-delay: 200ms;
+    }
+    
+    .main-header.show ul>li:nth-child(3) {
+        animation-delay: 300ms;
+    }
+    
+    .main-header.show ul>li:nth-child(4) {
+        animation-delay: 400ms;
+    }
+    
+    .img {
+        width: 50%;
+        margin: auto;
+    }
+    
+    .img img {
+        max-width: 100%;
+        height: 200px;
+    }
+    
+    .menu {
+        /* background: url('../../public/images/vegetable.jpg');
     background-position-y: 150px;
     background-size: cover;
-    background-attachment: fixed;
-    color: black;
-}
-
-.pizza-tomate ul,
-.pizza-blanche ul,
-.desserts ul,
-.boissons ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    column-gap: 6rem;
-    padding: 0;
-}
-
-.pizza-tomate ul li,
-.pizza-blanche ul li,
-.desserts ul li,
-.boissons ul li {
-    list-style: none;
-    padding: 10px;
-    background: linear-gradient(90deg, rgba(69, 204, 31, 0.8939950980392157) 0%, rgba(255, 255, 255, 1) 49%, rgba(255, 0, 0, 0.639093137254902) 100%);
-    margin-top: 10px;
-    width: 100%;
-}
-
-.boissons ul li {
-    width: 70%;
-}
-
-.desserts ul li {
-    width: 100%;
-}
-
-h3 {
-    text-align: center;
-    margin-bottom: 5rem;
-    margin-top: 4rem;
-    text-decoration: underline;
-    padding: 1rem;
-    background: url(http://127.0.0.1:5173/public/images/italian_flag_background_title.jpg);
-    background-size: contain;
-    background-position-x: center;
-    background-repeat: no-repeat;
-}
-
-.presentation {
-    background: url('../../public/images/italian_flag_gradient.png');
-    /* background-size: cover; */
-    background-attachment: fixed;
-}
-
-.presentation p,
-h2 {
-    padding: 1rem;
-    text-align: center;
-    color: black;
-    font-size: 30px;
-    text-decoration: underline;
-}
-
-.img-italian-flag {
-    display: block;
-    margin: auto;
-}
-
-.ingredient-details {
-    width: 86%;
-}
-
-
-/* Effect with intersection observer */
-
-.fade {
-    opacity: 0;
-    transition: opacity 730ms ease-in-out;
-}
-
-.fade.appear {
-    opacity: 1;
-}
-
-.from-top {
-    transform: translateY(-10%);
-}
-
-.from-left {
-    transform: translateX(-150%)
-}
-
-.from-left.appear {
-    opacity: 1;
-    transform: translateX(0);
-    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
-    transition-delay: 100ms;
-}
-
-.from-top.appear {
-    opacity: 1;
-    transform: translateY(0);
-    transition: transform .5s ease-in-out, opacity .5s ease-in-out;
-}
-
-@keyframes scale {
-    from {
-        transform: scale(1);
+    background-attachment: fixed; */
+        color: black;
     }
-    to {
-        transform: scale(1.3);
+    
+    .pizza-blanches {
+        background: url(http://127.0.0.1:5173/public/images/background-tomates.jpg);
+        background-color: rgba(red, green, blue, .5);
+        background-size: cover;
+        background-position-x: 32px;
     }
-}
-
-@keyframes slide-in {
-    0% {
-        opacity: 0;
-        transform: translateX(-70px);
+    
+    .pizza-tomates {
+        background: url(http://127.0.0.1:5173/public/images/background-blanches.jpg);
+        background-color: rgba(red, green, blue, .5);
+        background-size: cover;
+        background-position-x: 32px;
     }
-    50% {
-        opacity: .5;
+    
+    .boissons {
+        background: url(http://127.0.0.1:5173/public/images/background-boissons.jpg);
+        background-color: rgba(red, green, blue, .5);
+        background-size: cover;
+        background-position-x: 32px;
     }
-    100% {
-        opacity: 1;
-        transform: translateX(0px);
-    }
-}
-
-@media screen and (min-width:768px) {
-    .main-header {
-        transform: none;
-        height: 55px;
-    }
-    .top-nav {
-        display: block;
-    }
-    .main-header nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        margin-top: 5px;
-    }
-    .pizza-tomate ul,
-    .pizza-blanche ul,
+    
+    .pizza-tomates ul,
+    .pizza-blanches ul,
+    .desserts ul,
     .boissons ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        -moz-column-gap: 6rem;
-        column-gap: 1rem;
+        column-gap: 6rem;
         padding: 0;
     }
-    .pizza-tomate ul li,
-    .pizza-blanche ul li {
-        width: 47%;
-    }
-    .desserts ul li {
-        width: 40%;
-    }
+    
+    .pizza-tomates ul li,
+    .pizza-blanches ul li,
+    .desserts ul li,
     .boissons ul li {
-        width: 22%;
+        position: relative;
+        list-style: none;
+        padding: 10px;
+        margin-top: 10px;
+        width: 100%;
+        background: rgba(0, 0, 0, .2);
     }
-}
-
-@media screen and (min-width:1478px) {
+    
+    .pizza-tomates ul li,
+    .pizza-blanches ul li {
+        height: 105px;
+        overflow: hidden;
+        transition: height .5s ease-in;
+    }
+    
+    article.pizza-tomates>ul>li.show,
+    article.pizza-blanches>ul>li.show {
+        height: 400px;
+        transition: height .5s ease-in;
+    }
+    
+    .boissons ul li {
+        width: 70%;
+    }
+    
     .desserts ul li {
-        width: 20%;
+        width: 100%;
     }
-}
+    
+    .presentation h3 {
+        font-size: 27px;
+    }
+    
+    h3:not(.title) {
+        font-family: 'Marck Script', cursive;
+        text-align: center;
+        font-size: 39px;
+        margin-bottom: 5rem;
+        margin-top: 4rem;
+        text-decoration: underline;
+        padding: 1rem;
+        background: url(http://127.0.0.1:5173/public/images/italian_flag_background_title.jpg);
+        background-size: 366px;
+        background-position-x: center;
+        background-repeat: no-repeat;
+    }
+    
+    .menu li h4 {
+        font-size: 40px;
+        font-family: 'Marck Script', cursive;
+        color: firebrick;
+    }
+    
+    .title-category {
+        font-size: 40px;
+        color: firebrick;
+        border-bottom: 2px solid;
+        width: 40%;
+        margin: auto;
+        margin-bottom: 1rem;
+        margin-top: 3rem;
+    }
+    
+    .presentation {
+        background: url('../../public/images/vegetable.jpg');
+        background-position-y: 150px;
+        background-size: cover;
+        background-attachment: fixed;
+        /* background-size: cover; */
+    }
+    
+    .presentation p {
+        padding: 1rem;
+        text-align: center;
+        font-size: 23px;
+        text-decoration: underline;
+        font-family: 'Kite One', sans-serif;
+        background-color: rgba(0, 0, 0, .5);
+        color: white;
+    }
+    
+    .presentation h2 {
+        text-align: center;
+        color: black;
+        font-size: 38px;
+        font-family: 'Marck Script', cursive;
+    }
+    
+    .presentation .contact-tel {
+        text-align: center;
+        display: block;
+        font-size: 30px;
+        outline: 5px solid green;
+        color: white;
+        margin-top: 5rem;
+    }
+    
+    .img-italian-flag {
+        display: block;
+        margin: auto;
+    }
+    
+    .ingredient-details {
+        width: 86%;
+        font-weight: 600;
+        font-size: 21px;
+        padding: 10px;
+        font-family: 'Kite One', sans-serif;
+    }
+    /* Effect with intersection observer */
+    
+    .fade {
+        opacity: 0;
+        transition: opacity 730ms ease-in-out;
+    }
+    
+    .fade.appear {
+        opacity: 1;
+    }
+    
+    .from-top {
+        transform: translateY(-10%);
+    }
+    
+    .from-left {
+        transform: translateX(-150%)
+    }
+    
+    .from-left.appear {
+        opacity: 1;
+        transform: translateX(0);
+        transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+        transition-delay: 100ms;
+    }
+    
+    .from-top.appear {
+        opacity: 1;
+        transform: translateY(0);
+        transition: transform .5s ease-in-out, opacity .5s ease-in-out, height .5s ease-in-out;
+    }
+    
+    .schedule li {
+        text-align: center;
+        list-style: none;
+    }
+    
+    footer {
+        background-color: aliceblue;
+        padding: 1rem;
+    }
+    
+    .maps {
+        display: block;
+        border: 0;
+        margin: auto;
+        max-width: 100%;
+    }
+    
+    .schedule {
+        margin-top: 3rem;
+        flex: initial;
+    }
+    
+    .price {
+        right: 1rem;
+        top: 1rem;
+        font-weight: bold;
+    }
+    
+    .paiements {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .price-drink {
+        position: absolute;
+        right: 1rem;
+        bottom: 0.3rem;
+        font-weight: bold;
+    }
+    
+    .boissons h4 {
+        font-size: 21px;
+        font-family: 'Kite One', sans-serif;
+    }
+    
+    @keyframes scale {
+        from {
+            transform: scale(1);
+        }
+        to {
+            transform: scale(1.3);
+        }
+    }
+    
+    @keyframes slide-in {
+        0% {
+            opacity: 0;
+            transform: translateX(-70px);
+        }
+        50% {
+            opacity: .5;
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+    
+    @media screen and (min-width:768px) {
+        .main-header {
+            transform: none;
+            height: 55px;
+        }
+        .top-nav {
+            display: block;
+        }
+        .main-header nav ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 5px;
+        }
+        .pizza-tomates ul,
+        .pizza-blanches ul,
+        .boissons ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            -moz-column-gap: 6rem;
+            column-gap: 1rem;
+            padding: 0;
+        }
+        .pizza-tomates ul li,
+        .pizza-blanches ul li {
+            width: 47%;
+        }
+        .desserts ul li {
+            width: 40%;
+        }
+        .boissons ul li {
+            width: 34%;
+        }
+        .boissons h4 {
+            font-size: 22px;
+        }
+        .ingredient-details {
+            font-size: 20px;
+            /* letter-spacing: 5px; */
+        }
+        .contact-tel {
+            width: 50%;
+            margin: auto;
+            font-size: 40px;
+        }
+        .carousel .carousel-item {
+            height: 640px;
+        }
+        .presentation h3 {
+            font-size: 50px;
+        }
+        .presentation h2 {
+            font-size: 60px;
+        }
+    }
+    
+    @media screen and (min-width:1000px) {
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 5rem;
+            width: 90%;
+            margin: auto;
+        }
+        .pizza-tomates ul li,
+        .pizza-blanches ul li {
+            height: auto;
+        }
+    }
+    
+    @media screen and (min-width:1478px) {
+        .desserts ul li {
+            width: 20%;
+        }
+    }

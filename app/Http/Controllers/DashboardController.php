@@ -43,6 +43,7 @@ class DashboardController extends Controller
         $drink_types = DrinkType::all();
         $desserts = Dessert::all();
         $pizzas = Pizza::with(['ingredients'])->where('is_deleted','=',0)->get();
+
    
         return view('dashboard.index',compact('categories','ingredient_types','ingredients','pizzas','drinks','drink_types','desserts'));
     }

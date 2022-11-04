@@ -25,6 +25,8 @@ Route::middleware('cookie-consent')->group(function(){
 Route::middleware('token.validator')->group(function(){
     Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard.index');
 
+    Route::get('/pizzas',[DashboardController::class,'pizzas']);
+
     Route::get('/ajouter-pizza',[PizzaController::class,'addPizza'])->name('pizza.add');
 
     Route::get('/ajouter-dessert',[DashboardController::class,'desserts'])->name('ajouter.dessert');
