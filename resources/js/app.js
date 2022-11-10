@@ -18,8 +18,9 @@ const pizza_li = document.querySelectorAll('#pizza-list')
 
 console.log(window.innerWidth)
 if (window.innerWidth <= 768) {
-    pizzaTitle.forEach((element, indexTitle) => {
-        element.addEventListener('click', () => {
+    pizzaTitle.forEach((elementTitle, indexTitle) => {
+        elementTitle.style.cursor = "pointer"
+        elementTitle.addEventListener('click', () => {
             pizza_li.forEach((element, indexLi) => {
                 if (indexTitle == indexLi)
                     element.classList.toggle('show')

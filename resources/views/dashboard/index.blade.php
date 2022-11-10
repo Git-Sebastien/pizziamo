@@ -69,7 +69,6 @@
                     </ul>
                 </div>
             
-                
                 {{-- <ul class="list-group mt-4">
                     @foreach($pizzas as $pizza)
                     @if ($pizza->is_deleted === 0)
@@ -107,7 +106,7 @@
                                         <p>{{ $drink->drink_name }}</p> <br>
                                         <p>{{ $drink->drink_price .'€'}}</p>  
                                     <span class="d-flex justify-content-end">
-                                        <a href="{{ route('pizza.edit',$pizza->id ?? "") }}" class="btn btn-outline-warning btn-sm">
+                                        <a href="{{ route('drink.edit',$drink->id ?? "") }}" class="btn btn-outline-warning btn-sm">
                                             {{ __('Modifier') }}
                                         </a>
                                         <form action="{{ route('pizza.delete',$pizza->id ?? "") }}" method="post" class="d-inline">@csrf  

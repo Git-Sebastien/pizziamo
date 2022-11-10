@@ -25,5 +25,7 @@
             @yield('add-dessert')
             @yield('edit-pizza')
             @yield('add-drink')
+            @yield('edit-ingredient')
+            @yield('edit-drink')
         </body>
 </html>

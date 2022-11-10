@@ -39,6 +39,10 @@ Route::middleware('token.validator')->group(function(){
 
     Route::get('/ajouter-boison',[DashboardController::class,'drinks'])->name('ajouter.drink');
 
+    Route::get('edit-drink/{id}',[DashboardController::class,'editDrink'])->name('drink.edit');
+
+    Route::post('/update-drink/{id}',[DashboardController::class,'updateDrink'])->name('drink.update');
+
     Route::post('/pizza-create-with-checkbox',[PizzaController::class,'createPizzaWithCheckbox'])->name('pizza.create-checkbox');
     
     Route::post('/add-drink',[DashboardController::class,'addDrink'])->name('drink.add');

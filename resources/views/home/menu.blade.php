@@ -13,7 +13,7 @@
                            {{ $ingredient->ingredient_name }},
                         @endforeach
                     </p>
-                    </li>
+                </li>
                 @endif
             @endforeach
         </ul>
@@ -28,7 +28,6 @@
                     @if ($drink->fk_drink_type_id === $drink_type->id)
                     <li class="fade from-top">
                        <h4>{{ $drink->drink_name }} - {{ $drink->drink_volume }}</h4>
-                       <br>
                         <span class="price-drink">{{ $drink->drink_price }}€</span>
                         </li>
                     @endif

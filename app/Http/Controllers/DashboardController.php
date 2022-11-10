@@ -17,18 +17,6 @@ use Illuminate\Support\Facades\Hash;
 class DashboardController extends Controller
 {
     use Utilities;
-    public function index(Request $request,$token)
-    {   
-        $users = User::get('personal_token');
-        foreach($users as $user){
-            $request->session()->put(['token_user'=> $user->personal_token,'token' => $token]);
-            if (Hash::check($token, $user->personal_token)) {
-                return  redirect('/login');
-            }
-        }
-        return redirect('/');
-    }
-
     public function dashboard()
     {
         $categories = DB::table('categories')
@@ -83,12 +71,24 @@ class DashboardController extends Controller
         return view('pizza.add-drink',compact('drink_types'));
     }
 
-    public function addDrink(Request $requst)
+    public function addDrink()
     {
         Drink::create([
             'drink_name',
             'drink_volume',
             'fk_drink_type_id'
         ]);
+    }
+
+    public function editDrink($id)
+    {
+        $drink = Drink::findOrFail($id);
+        return view('pizza.edit-drink',compact('drink'));
+    }
+
+    public function updateDrink($id,Request $request)
+    {
+        $drink = Drink::findOrFail($id);
+
     }
 }

@@ -25,5 +25,10 @@
                     </address>
                 </li>
             </ul>
+            <div class="footer">
+            <span>&copy; Copyright 2022 Pizziamo</span>
+            <span class="creator">Site crée par Ancelin Sébastien</span>
+        </div>
         </article>
+        
 </footer>
