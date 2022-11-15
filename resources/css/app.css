@@ -195,7 +195,6 @@
     
     .main-site {
         font-size: 25px;
-        padding: 1rem;
     }
     
     .main-header {
@@ -263,6 +262,10 @@
     
     .top-nav {
         display: none;
+    }
+    
+    .top-nav>ul>li>a {
+        color: firebrick;
     }
     
     .main-site .burger {
@@ -368,19 +371,21 @@
     
     .pizza-tomates ul li,
     .pizza-blanches ul li {
-        height: 105px;
+        max-height: 63px;
         overflow: hidden;
-        transition: height .5s ease-in;
+        height: auto;
+        transition: max-height .5s ease-in;
     }
     
     article.pizza-tomates>ul>li.show,
     article.pizza-blanches>ul>li.show {
-        height: 400px;
-        transition: height .5s ease-in;
+        max-height: 400px;
+        height: auto;
+        transition: max-height .5s ease-in;
     }
     
     .boissons ul li {
-        width: 70%;
+        width: 100%;
     }
     
     .desserts ul li {
@@ -498,7 +503,7 @@
     .from-top.appear {
         opacity: 1;
         transform: translateY(0);
-        transition: transform .5s ease-in-out, opacity .5s ease-in-out, height .5s ease-in-out;
+        transition: transform .5s ease-in-out, opacity .5s ease-in-out, max-height .5s ease-in-out;
     }
     
     .schedule li {
@@ -528,6 +533,7 @@
         top: 1rem;
         font-weight: bold;
         float: right;
+        font-size: large;
     }
     
     .paiements {
@@ -549,6 +555,29 @@
     
     .creator {
         font-size: 14px;
+        align-self: center;
+    }
+    
+    .footer {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    /* Arrow beside pizza name */
+    
+    li>h4>i {
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        margin-bottom: 4px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+    
+    .up {
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
     }
     
     @keyframes scale {
@@ -601,6 +630,7 @@
         .pizza-tomates ul li,
         .pizza-blanches ul li {
             width: 47%;
+            max-height: none;
         }
         .desserts ul li {
             width: 40%;
@@ -628,6 +658,9 @@
         }
         .presentation h2 {
             font-size: 60px;
+        }
+        li>h4>i {
+            display: none;
         }
     }
     

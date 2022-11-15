@@ -2,7 +2,6 @@
 
 
 @section('title','Edite une boisson')
-{{-- {{ dd($drink->id) }} --}}
 @section('edit-drink')
     <form action="{{ route('drink.update',$drink->id) }}" method="post">
         @csrf

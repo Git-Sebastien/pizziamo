@@ -28,7 +28,7 @@ class TokenValidator
                 return redirect('/');
             }
         }
-
+        
         return $next($request);
     }
 }

@@ -13,8 +13,6 @@ const mainHeader = document.querySelector('#main-header')
 const topNav = document.querySelector('#top-nav')
 const pizzaTitle = document.querySelectorAll('#pizza-title')
 const pizza_li = document.querySelectorAll('#pizza-list')
-const liTopNav = document.querySelectorAll("#top-nav > ul > li > a")
-const arrow = document.querySelectorAll("#pizza-title > i")
 
 console.log(window.innerWidth)
 if (window.innerWidth <= 768) {
@@ -24,26 +22,10 @@ if (window.innerWidth <= 768) {
             pizza_li.forEach((element, indexLi) => {
                 if (indexTitle == indexLi)
                     element.classList.toggle('show')
-
-            })
-            arrow.forEach((elementIcone, elementIndex) => {
-                if (elementIndex == indexTitle)
-                    elementIcone.classList.toggle('up');
-
             })
         })
     })
 }
-liTopNav.forEach(element => {
-    element.addEventListener('click', () => {
-        console.log('hello')
-        if (mainHeader.classList.contains('show')) {
-            topNav.classList.remove('active')
-            mainHeader.classList.remove('show')
-            burger.classList.remove('active')
-        }
-    })
-})
 
 burger.addEventListener('click', function() {
     burger.classList.toggle('active');

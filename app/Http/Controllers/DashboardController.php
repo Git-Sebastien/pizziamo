@@ -17,6 +17,20 @@ use Illuminate\Support\Facades\Hash;
 class DashboardController extends Controller
 {
     use Utilities;
+
+    public function index(Request $request,$token)
+    {   
+        $users = User::get('personal_token');
+        foreach($users as $user){
+            $request->session()->put(['token_user'=> $user->personal_token,'token' => $token]);
+            if (Hash::check($token, $user->personal_token)) {
+                return  redirect('/login');
+            }
+        }
+        return redirect('/');
+    }
+
+
     public function dashboard()
     {
         $categories = DB::table('categories')
