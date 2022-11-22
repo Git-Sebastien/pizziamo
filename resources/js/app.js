@@ -15,8 +15,16 @@ const pizzaTitle = document.querySelectorAll('#pizza-title')
 const pizza_li = document.querySelectorAll('#pizza-list')
 const liTopNav = document.querySelectorAll("#top-nav > ul > li > a")
 const arrow = document.querySelectorAll("#pizza-title > i")
+const categoryPIzza = document.querySelector("#top-nav > ul > li.pizza-category")
+const categoryPIzzaNav = document.querySelector("#top-nav > ul > li.pizza-category > ul")
 
-console.log(window.innerWidth)
+categoryPIzza.addEventListener('click', () => {
+    categoryPIzzaNav.classList.toggle('show')
+    if (window.innerWidth <= 768) {
+        mainHeader.classList.toggle('expends')
+    }
+})
+
 if (window.innerWidth <= 768) {
     pizzaTitle.forEach((elementTitle, indexTitle) => {
         elementTitle.style.cursor = "pointer"
@@ -54,7 +62,7 @@ burger.addEventListener('click', function() {
 
 
 
-const ratio = .7;
+const ratio = .4;
 
 const fade = document.querySelectorAll('.fade');
 const slide = document.querySelectorAll('.slide')

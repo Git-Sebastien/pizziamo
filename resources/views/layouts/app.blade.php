@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="robots" content="noindex, nofollow" />
-        <meta name="description" content="Bienvenue chez Pizziamo, votre nouvelle pizzaria à la ravoire vous propose un large choix de produit frais et une carte de pizza italienne cuite aux feux à boix. Décrouvrez aussi un large choix de dessert et apéritifs le tous fais avec humour dans la joie et la bonne humeur !">
+        <meta name="description" content="Bienvenue chez Pizziamo da Gabriele, votre nouvelle pizzaria italienne à la ravoire vous propose un large choix de produit frais et une carte de pizza italienne cuite au four a bois. Décrouvrez aussi un large choix de dessert ainsi que des vins venant tout droit d'italie !">
 
         <title>@yield('title')</title>
 
@@ -20,21 +20,17 @@
         <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Edu+QLD+Beginner:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Kite+One&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-        <!-- Scripts -->
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous" defer></script>
         <script src="{{ asset('js/app.js') }}"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased main-site">
-        <div class="min-h-screen bg-gray-100">
+        <main class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
             <!-- Page Content -->
-            <main>
+   
             @yield('home')
-            </main>
-        </div>
+        </main>
     </body>
 </html>

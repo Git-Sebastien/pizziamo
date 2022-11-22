@@ -1,7 +1,8 @@
-<h3 class="mt-5" id="pizza">Nos pizzas</h3>
+<h3 class="mt-2" id="pizza">Nos pizzas</h3>
 <section class="menu">
     @foreach ($categories as $category)
-    <h4 class="text-center title-category">{{ $category->category_name }}</h4>
+    <span ></span>    
+    <h4 class="text-center title-category" id="pizza-{{Str::substr($category->category_name,4,8) }}">{{ $category->category_name }}</h4>
     <article class="pizza-{{Str::substr($category->category_name,4,8) }}">
         <ul>
             @foreach ($pizzas as $pizza)
@@ -27,8 +28,12 @@
                 @foreach ($drinks as $drink)
                     @if ($drink->fk_drink_type_id === $drink_type->id)
                     <li class="fade from-top">
-                       <h4>{{ $drink->drink_name }} - {{ $drink->drink_volume }}</h4>
+                       <h4>{{ $drink->drink_name }}  {{ $drink->drink_volume }}</h4>
+                        @if (Str::length($drink->drink_price) > 2)
+                            <span class="price-drink">{{ $drink->drink_price.'0' }}€</span>  
+                        @else
                         <span class="price-drink">{{ $drink->drink_price }}€</span>
+                        @endif 
                         </li>
                     @endif
                 @endforeach
