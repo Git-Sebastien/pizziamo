@@ -182,16 +182,13 @@
     }
     /* Website */
     
-    main {
-        /* background: url(../../public/images/tomato.jpg);
-        background-size: 277vh;
-        background-position-y: 196px;
-        background-repeat: no-repeat;
-        background-attachment: fixed; */
-    }
-    
     .website {
         font-size: 20px;
+        letter-spacing: 1px;
+    }
+    
+    a {
+        text-decoration: none;
     }
     
     .logo {
@@ -220,7 +217,7 @@
         /* background-color: rgba(0, 0, 0, .95); */
         background: url(/public/images/flavor.png);
         transform: translateY(-251px);
-        transition: transform .5s;
+        transition: transform .3s;
     }
     
     .pizza-category {
@@ -236,7 +233,8 @@
         margin: auto;
         overflow: hidden;
         height: 0px;
-        transition: height .5s ease-in;
+        transition: height .3s ease-in;
+        padding: 0;
     }
     
     .pizza-category .pizza-category-nav li a {
@@ -245,13 +243,14 @@
     
     .pizza-category .pizza-category-nav.show {
         height: 149px;
-        transition: height .5s ease-in;
+        transition: height .3s ease-in;
         border-radius: 9px;
+        padding: 0;
     }
     
     .main-header.expends {
         height: 455px;
-        transition: height .5s ease-in;
+        transition: height .3s ease-in;
     }
     
     .pizza-category-nav {
@@ -259,7 +258,31 @@
         display: none;
     }
     
-    .pizza-category-nav li {
+    .menu-carte {
+        color: white;
+    }
+    
+    .menu-carte .menu-carte-nav {
+        display: flex;
+        flex-direction: column;
+        transition: opacity .3s ease-in;
+        margin: auto;
+        overflow: hidden;
+        height: 0px;
+        transition: height .3s ease-in;
+        color: white;
+        padding: 0;
+    }
+    
+    .menu-carte .menu-carte-nav.show {
+        height: 92px;
+        transition: height .3s ease-in;
+        border-radius: 9px;
+        padding: 0;
+    }
+    
+    .pizza-category-nav li,
+    .menu-carte-nav li a {
         color: white;
     }
     
@@ -274,7 +297,6 @@
     
     .main-header nav ul li {
         list-style: none;
-        text-decoration: underline;
         font-size: 30px;
         font-family: 'Marck Script', cursive;
     }
@@ -424,6 +446,13 @@
         padding: 1rem;
     }
     
+    .desserts {
+        background: url(/public/images/background-dessert.png);
+        background-size: cover;
+        background-position-x: 32px;
+        background-attachment: fixed;
+    }
+    
     .pizza-tomates ul,
     .pizza-blanches ul,
     .pizza-calzones ul,
@@ -453,7 +482,8 @@
     
     .pizza-tomates ul li,
     .pizza-blanches ul li,
-    .pizza-calzones ul li {
+    .pizza-calzones ul li,
+    .desserts ul li {
         max-height: 63px;
         overflow: hidden;
         height: auto;
@@ -462,7 +492,8 @@
     
     article.pizza-tomates>ul>li.show,
     article.pizza-blanches>ul>li.show,
-    article.pizza-calzones>ul>li.show {
+    article.pizza-calzones>ul>li.show,
+    article.desserts>ul>li.show {
         max-height: 400px;
         height: auto;
         transition: max-height .5s ease-in;
@@ -473,10 +504,6 @@
         display: flex;
         justify-content: space-between;
         column-gap: 4px;
-    }
-    
-    .desserts ul li {
-        width: 100%;
     }
     
     .presentation h3 {
@@ -503,6 +530,7 @@
         font-weight: 900;
         width: 60%;
         display: contents;
+        cursor: pointer;
     }
     
     .title-category {
@@ -577,7 +605,7 @@
     
     .fade {
         opacity: 0;
-        transition: opacity 730ms ease-in-out;
+        transition: opacity .3s ease-in-out;
     }
     
     .fade.appear {
@@ -585,11 +613,15 @@
     }
     
     .from-top {
-        transform: translateY(-10%);
+        transform: translateY(-20%);
     }
     
     .from-left {
-        transform: translateX(-150%)
+        transform: translateX(-10%)
+    }
+    
+    .from-right {
+        transform: translateX(10%)
     }
     
     .from-left.appear {
@@ -602,7 +634,14 @@
     .from-top.appear {
         opacity: 1;
         transform: translateY(0);
-        transition: transform .5s ease-in-out, opacity .5s ease-in-out, max-height .5s ease-in-out;
+        transition: transform .5s ease-in-out, opacity .3s ease-in-out, max-height .5s ease-in-out;
+    }
+    
+    .from-right.appear {
+        opacity: 1;
+        transform: translateX(0);
+        transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+        transition-delay: 100ms;
     }
     
     .schedule ul {
@@ -802,10 +841,19 @@
         }
     }
     
+    @media screen and (min-width:650px) {
+        .boissons ul li {
+            width: 42%;
+        }
+    }
+    
     @media screen and (min-width:768px) {
         .main-header {
             transform: none;
             height: 100px;
+        }
+        .menu li h4 {
+            cursor: none;
         }
         .top-nav {
             display: block;
@@ -819,7 +867,8 @@
         .pizza-tomates ul,
         .pizza-blanches ul,
         .pizza-calzones ul,
-        .boissons ul {
+        .boissons ul,
+        .desserts ul {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -829,16 +878,14 @@
         }
         .pizza-tomates ul li,
         .pizza-blanches ul li,
-        .pizza-calzones ul li {
+        .pizza-calzones ul li,
+        .desserts ul li {
             width: 47%;
             max-height: none;
         }
         .pizza-calzones ul li:nth-child(2) {
             width: 47%;
             max-height: none;
-        }
-        .desserts ul li {
-            width: 40%;
         }
         .boissons ul li {
             width: 30%;
@@ -879,6 +926,10 @@
             background: url(/public/images/flavor.png);
             width: 213px;
         }
+        .menu-carte .menu-carte-nav {
+            background: url(/public/images/flavor.png);
+            width: 213px;
+        }
     }
     
     @media screen and (min-width:838px) {
@@ -907,7 +958,8 @@
         }
         .pizza-tomates ul li,
         .pizza-blanches ul li,
-        .pizza-calzones ul li {
+        .pizza-calzones ul li,
+        .desserts ul li {
             height: auto;
         }
         .pizza-vintage {
@@ -926,9 +978,6 @@
             left: 69%;
             width: 275px;
         }
-        /* .boissons ul li {
-            width: 45%;
-        } */
     }
     
     @media screen and (min-width:1230px) {
@@ -941,12 +990,6 @@
         .presentation {
             background-position-y: 778px;
             background-size: 1874px;
-        }
-    }
-    
-    @media screen and (min-width:1478px) {
-        .desserts ul li {
-            width: 20%;
         }
     }
     

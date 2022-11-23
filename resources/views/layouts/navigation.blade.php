@@ -4,12 +4,18 @@
         <ul>
             <li><a href="">Accueil</a></li>
             <li class="pizza-category">Nos pizzas<i></i>
-            <ul class="pizza-category-nav">
-                <li><a href="#pizza-blanches">Les blanches</a></li>
-                <li><a href="#pizza-tomates">Les tomates</a></li>
-                <li><a href="#pizza-calzones">Les calzones</a></li>
-            </ul></li>
-            <li><a href="">Pizziamo</a></li>
+                <ul class="pizza-category-nav">
+                    <li><a href="#pizza-blanches">Les blanches</a></li>
+                    <li><a href="#pizza-tomates">Les tomates</a></li>
+                    <li><a href="#pizza-calzones">Les calzones</a></li>
+                </ul>
+            </li>
+            <li class="menu-carte">La carte<i></i>
+                <ul class="menu-carte-nav">
+                    <li><a href="#boissons">Les boissons</a></li>
+                    <li><a href="desserts">Les desserts</a></li>
+                </ul>
+            </li>
             <li><a href="">Contact</a></li>
         </ul>
     </nav>

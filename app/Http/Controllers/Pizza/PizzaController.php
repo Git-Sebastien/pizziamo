@@ -9,7 +9,6 @@ use App\Models\IngredientType;
 use App\Models\PizzaIngredient;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Dessert;
 
 class PizzaController extends Controller
 {
