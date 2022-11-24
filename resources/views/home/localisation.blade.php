@@ -1,5 +1,5 @@
 <h3 class="fade">Nous retrouvez</h3>
-<footer class="fade from-top">
+<footer id="contact">
     <div class="credit-accept">
         
         <ul class="paiements">

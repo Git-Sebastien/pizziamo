@@ -7,7 +7,7 @@
             @foreach ($pizzas as $pizza)
                 @if ($pizza->fk_category_id === $category->id)
                 <li class="fade from-top" id="pizza-list">
-                   <h4 id="pizza-title">{{ $pizza->pizza_name }} <i></i></h4> <span class="price">{{ $pizza->pizza_price }},00 €</span>
+                   <h4 id="pizza-title">{{ $pizza->pizza_name }} <i></i></h4> <span class="price">{{ $pizza->pizza_price.',00' }}€</span>
                    <p class="ingredient-details">
                         @foreach ($pizza->ingredients as $ingredient)
                            {{ $ingredient->ingredient_name }},

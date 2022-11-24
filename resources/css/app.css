@@ -1,1001 +1,1059 @@
-    /* @tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
-    /* Dashboard */
-    
-    .list-group-item {
-        box-sizing: initial;
-    }
-    
-    .burger {
-        position: sticky;
-        margin-right: -16px;
-        top: 43px;
-        left: 40rem;
-        visibility: visible;
-        width: 29px;
-        height: 50px;
-        cursor: pointer;
-    }
-    
-    .burger span {
-        display: block;
-        width: 100%;
-        height: 3px;
-        right: 50%;
-        background-color: white;
-        position: absolute;
-        top: 15%;
-        transform: translateY(-50%);
-        transition: background-color .2s ease-in-out;
-    }
-    
-    .burger span::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 3px;
-        background-color: red;
-        transition: transform .4s ease-in-out;
-    }
-    
-    .burger span::before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 3px;
-        background-color: green;
-        transition: transform .4s ease-in-out;
-    }
-    
-    .burger span::before {
-        transform: translateY(15px);
-        top: -5px;
-    }
-    
-    .burger span::after {
-        transform: translateY(-15px);
-        top: 5px;
-    }
-    
-    .burger.active span {
-        background-color: transparent;
-    }
-    
-    .burger.active span::before {
-        transform: translate(0px, 5px) rotate(45deg);
-    }
-    
-    .burger.active span::after {
-        transform: translate(0px, -5px) rotate(133deg);
-    }
-    
-    .list-group-item p {
-        display: inline;
-        font-weight: bold;
-    }
-    
+
+
+/* Dashboard */
+
+.list-group-item {
+    box-sizing: initial;
+}
+
+.burger {
+    position: sticky;
+    margin-right: -16px;
+    top: 43px;
+    left: 40rem;
+    visibility: visible;
+    width: 29px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.burger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    right: 50%;
+    background-color: white;
+    position: absolute;
+    top: 15%;
+    transform: translateY(-50%);
+    transition: background-color .2s ease-in-out;
+}
+
+.burger span::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: red;
+    transition: transform .4s ease-in-out;
+}
+
+.burger span::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: green;
+    transition: transform .4s ease-in-out;
+}
+
+.burger span::before {
+    transform: translateY(15px);
+    top: -5px;
+}
+
+.burger span::after {
+    transform: translateY(-15px);
+    top: 5px;
+}
+
+.burger.active span {
+    background-color: transparent;
+}
+
+.burger.active span::before {
+    transform: translate(0px, 5px) rotate(45deg);
+}
+
+.burger.active span::after {
+    transform: translate(0px, -5px) rotate(133deg);
+}
+
+.list-group-item p {
+    display: inline;
+    font-weight: bold;
+}
+
+.main-nav {
+    position: absolute;
+    transform: translateX(-100vw);
+    transition: transform .5s;
+    z-index: 1;
+    width: 100vw;
+    height: 60%;
+}
+
+.main-nav.show {
+    transform: translateX(0);
+    transition: transform .5s;
+}
+
+.recap {
+    background-color: aqua;
+}
+
+.row {
+    --bs-gutter-x: 0
+}
+
+.dashboard {
+    column-gap: 6rem;
+    height: 100%;
+    background-color: seashell;
+    ;
+}
+
+.recap-all {
+    width: 90vw;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+.main-nav li {
+    text-align: center;
+}
+
+.list-group-item {
+    padding: 14px
+}
+
+.pizza-name {
+    display: block;
+    margin: auto;
+}
+
+input[type=checkbox] {
+    transform: scale(1.9);
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 19px;
+}
+
+.wrapper {
+    padding: 5rem;
+}
+
+.ingredient-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.pizza-recap ul {
+    display: flex;
+}
+
+.recap-all {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+}
+
+.boissons-recap,
+.dessert-recap {
+    background-color: seashell;
+}
+
+.dashboard-body {
+    background-color: seashell;
+}
+
+article {
+    flex: auto;
+}
+
+@media screen and (min-width:768px) {
     .main-nav {
-        position: absolute;
-        transform: translateX(-100vw);
-        transition: transform .5s;
-        z-index: 1;
-        width: 100vw;
-        height: 60%;
-    }
-    
-    .main-nav.show {
-        transform: translateX(0);
-        transition: transform .5s;
-    }
-    
-    .recap {
-        background-color: aqua;
-    }
-    
-    .row {
-        --bs-gutter-x: 0
-    }
-    
-    .dashboard {
-        column-gap: 6rem;
-        height: 100%;
-        background-color: seashell;
-        ;
-    }
-    
-    .recap-all {
-        width: 90vw;
-        margin: 0 auto;
-    }
-    
-    h2 {
-        text-align: center;
-    }
-    
-    .main-nav li {
-        text-align: center;
-    }
-    
-    .list-group-item {
-        padding: 14px
-    }
-    
-    .pizza-name {
-        display: block;
-        margin: auto;
-    }
-    
-    input[type=checkbox] {
-        transform: scale(1.9);
-        margin-right: 10px;
-        margin-top: 10px;
-        font-size: 19px;
-    }
-    
-    .wrapper {
-        padding: 5rem;
-    }
-    
-    .ingredient-list {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-    }
-    
-    .pizza-recap ul {
-        display: flex;
-    }
-    
-    .recap-all {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: right;
-    }
-    
-    .boissons-recap,
-    .dessert-recap {
-        background-color: seashell;
-    }
-    
-    .dashboard-body {
-        background-color: seashell;
-    }
-    
-    article {
-        flex: auto;
-    }
-    
-    @media screen and (min-width:768px) {
-        .main-nav {
-            transform: translate(0);
-            transition: none;
-            position: fixed;
-            width: 18vw;
-        }
-        .recap-all {
-            width: 67vw;
-        }
-        .drink {
-            flex-basis: max-content;
-        }
-    }
-    /* Website */
-    
-    .website {
-        font-size: 20px;
-        letter-spacing: 1px;
-    }
-    
-    a {
-        text-decoration: none;
-    }
-    
-    .logo {
+        transform: translate(0);
+        transition: none;
         position: fixed;
-        top: -15px;
-        left: -19px;
-        z-index: 300;
-        width: 127px;
+        width: 18vw;
     }
-    
-    .logo img {
-        max-width: 100%;
-        width: 193px;
+    .recap-all {
+        width: 67vw;
     }
-    
-    .main-site {
-        font-size: 25px;
+    .drink {
+        flex-basis: max-content;
     }
-    
-    .main-header {
-        position: fixed;
-        top: 0;
-        height: 335px;
-        z-index: 2;
-        width: 100%;
-        /* background-color: rgba(0, 0, 0, .95); */
-        background: url(/public/images/flavor.png);
-        transform: translateY(-251px);
-        transition: transform .3s;
-    }
-    
-    .pizza-category {
-        position: relative;
-        color: white;
-        cursor: pointer;
-    }
-    
-    .pizza-category .pizza-category-nav {
-        display: flex;
-        flex-direction: column;
-        transition: opacity .3s ease-in;
-        margin: auto;
-        overflow: hidden;
-        height: 0px;
-        transition: height .3s ease-in;
-        padding: 0;
-    }
-    
-    .pizza-category .pizza-category-nav li a {
-        color: white;
-    }
-    
-    .pizza-category .pizza-category-nav.show {
-        height: 149px;
-        transition: height .3s ease-in;
-        border-radius: 9px;
-        padding: 0;
-    }
-    
-    .main-header.expends {
-        height: 455px;
-        transition: height .3s ease-in;
-    }
-    
-    .pizza-category-nav {
-        margin: auto;
-        display: none;
-    }
-    
-    .menu-carte {
-        color: white;
-    }
-    
-    .menu-carte .menu-carte-nav {
-        display: flex;
-        flex-direction: column;
-        transition: opacity .3s ease-in;
-        margin: auto;
-        overflow: hidden;
-        height: 0px;
-        transition: height .3s ease-in;
-        color: white;
-        padding: 0;
-    }
-    
-    .menu-carte .menu-carte-nav.show {
-        height: 92px;
-        transition: height .3s ease-in;
-        border-radius: 9px;
-        padding: 0;
-    }
-    
-    .pizza-category-nav li,
-    .menu-carte-nav li a {
-        color: white;
-    }
-    
-    .main-header nav ul {
-        text-align: center;
-        margin-top: 4rem;
-        line-height: 3rem;
-        -moz-column-gap: 3rem;
-        column-gap: 3rem;
-        flex-direction: column;
-    }
-    
-    .main-header nav ul li {
-        list-style: none;
-        font-size: 30px;
-        font-family: 'Marck Script', cursive;
-    }
-    
-    .carousel {
-        max-height: 681px;
-        margin-top: 100px;
-    }
-    
-    .carousel-caption h4 {
-        font-size: 48px;
-        color: black;
-        font-family: 'Marck Script', cursive;
-    }
-    
-    .carousel-caption p {
-        font-size: 27px;
-        color: black;
-        font-family: 'Kite One', sans-serif;
-    }
-    
-    .carousel-caption {
-        bottom: 7.25rem;
-        background-color: #f0f8ffd1;
-        width: 40%;
-        margin: auto;
-        border-radius: 30px;
-    }
-    
-    .carousel .carousel-item {
-        height: 433px;
-        animation: scale 14s
-    }
-    
-    .carousel-item img {
-        object-fit: cover;
-        object-position: center;
-        height: inherit;
-    }
-    
-    .top-nav {
-        display: none;
-    }
-    
-    .top-nav ul li i {
-        border: solid white;
-        border-width: 0 3px 3px 0;
-        display: inline-block;
-        padding: 3px;
-        margin-bottom: 4px;
-        margin-left: 10px;
-        transform: rotate(45deg);
-    }
-    
-    .top-nav>ul>li>a {
-        color: white;
-    }
-    
-    .main-site .burger {
-        position: sticky;
-        margin-right: -9px;
-        margin-top: -3rem;
-        top: 37px;
-        left: 46rem;
-        visibility: visible;
-        width: 35px;
-        height: 34px;
-        cursor: pointer;
-        z-index: 300;
-    }
-    
-    .main-header.show {
-        transform: translateY(-1px);
-        transition: transform .5s, height .6s;
-        transition-delay: 110ms;
-    }
-    
-    .main-header.show ul li {
-        opacity: 0;
-        animation: .7s ease-in-out slide-in forwards;
-    }
-    
-    .main-header.show ul>li:nth-child(1) {
-        animation-delay: 100ms;
-    }
-    
-    .main-header.show ul>li:nth-child(2) {
-        animation-delay: 200ms;
-    }
-    
-    .main-header.show ul>li:nth-child(3) {
-        animation-delay: 300ms;
-    }
-    
-    .main-header.show ul>li:nth-child(4) {
-        animation-delay: 400ms;
-    }
-    
-    .img {
-        width: 50%;
-        margin: auto;
-    }
-    
-    .img img {
-        max-width: 100%;
-        height: 200px;
-    }
-    
-    .menu {
-        /* background: url('../../public/images/vegetable.jpg');
+}
+
+
+/* Website */
+
+.website {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    position: relative;
+    color: #e03325;
+    border-bottom: 1px solid;
+    width: 47%;
+    margin: auto;
+}
+
+.logo {
+    position: fixed;
+    top: -11px;
+    left: -25px;
+    z-index: 300;
+    width: 127px;
+}
+
+.logo img {
+    max-width: 100%;
+    width: 193px;
+}
+
+.main-site {
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    height: 338px;
+    z-index: 2;
+    width: 100%;
+    background: url(/public/images/flavor.png);
+    transform: translateY(-251px);
+    transition: transform .3s;
+}
+
+.pizza-category {
+    position: relative;
+    color: white;
+    cursor: pointer;
+}
+
+.pizza-category .pizza-category-nav {
+    display: flex;
+    flex-direction: column;
+    transition: opacity .3s ease-in;
+    margin: auto;
+    overflow: hidden;
+    height: 0px;
+    transition: height .3s ease-in;
+    padding: 0;
+}
+
+.pizza-category .pizza-category-nav li a {
+    color: #34A248
+}
+
+.pizza-category .pizza-category-nav.show {
+    height: 149px;
+    transition: height .3s ease-in;
+    border-radius: 9px;
+    padding: 0;
+}
+
+.main-header.expends {
+    height: 455px;
+    transition: height .3s ease-in;
+}
+
+.pizza-category-nav {
+    margin: auto;
+    display: none;
+}
+
+.menu-carte {
+    color: white;
+    cursor: pointer;
+}
+
+.menu-carte .menu-carte-nav {
+    display: flex;
+    flex-direction: column;
+    transition: opacity .3s ease-in;
+    margin: auto;
+    overflow: hidden;
+    height: 0px;
+    transition: height .3s ease-in;
+    color: white;
+    padding: 0;
+}
+
+.menu-carte .menu-carte-nav.show {
+    height: 92px;
+    transition: height .3s ease-in;
+    border-radius: 9px;
+    padding: 0;
+}
+
+.pizza-category-nav li,
+.menu-carte-nav li a {
+    color: #e03325;
+}
+
+.main-header nav ul {
+    text-align: center;
+    margin-top: 4rem;
+    line-height: 3rem;
+    flex-direction: column;
+}
+
+.main-header nav ul li {
+    list-style: none;
+    font-size: 25px;
+    font-family: 'Marck Script', cursive;
+}
+
+.carousel {
+    max-height: 681px;
+    margin-top: 100px;
+}
+
+.carousel-caption h4 {
+    font-size: 48px;
+    color: black;
+    font-family: 'Marck Script', cursive;
+}
+
+.carousel-caption p {
+    font-size: 27px;
+    color: black;
+    font-family: 'Kite One', sans-serif;
+}
+
+.carousel-caption {
+    bottom: 7.25rem;
+    background-color: #f0f8ffd1;
+    width: 40%;
+    margin: auto;
+    border-radius: 30px;
+}
+
+.carousel .carousel-item {
+    height: 433px;
+    animation: scale 14s
+}
+
+.carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    height: inherit;
+}
+
+.top-nav {
+    display: none;
+    position: relative;
+    bottom: 66px;
+}
+
+.top-nav ul li i {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-bottom: 4px;
+    margin-left: 10px;
+    transform: rotate(45deg);
+}
+
+.top-nav>ul>li>a {
+    color: white;
+}
+
+.main-site .burger {
+    position: sticky;
+    margin-right: -9px;
+    margin-top: -3rem;
+    top: 37px;
+    left: 46rem;
+    visibility: visible;
+    width: 35px;
+    height: 34px;
+    cursor: pointer;
+    z-index: 300;
+}
+
+.main-header.show {
+    transform: translateY(-1px);
+    transition: transform .5s, height .6s;
+    transition-delay: 110ms;
+}
+
+.main-header.show ul li {
+    opacity: 0;
+    animation: .7s ease-in-out slide-in forwards;
+}
+
+.main-header.show ul>li:nth-child(1) {
+    animation-delay: 100ms;
+}
+
+.main-header.show ul>li:nth-child(2) {
+    animation-delay: 200ms;
+}
+
+.main-header.show ul>li:nth-child(3) {
+    animation-delay: 300ms;
+}
+
+.main-header.show ul>li:nth-child(4) {
+    animation-delay: 400ms;
+}
+
+.img {
+    width: 50%;
+    margin: auto;
+}
+
+.img img {
+    max-width: 100%;
+    height: 200px;
+}
+
+.menu {
+    /* background: url('../../public/images/vegetable.jpg');
     background-position-y: 150px;
     background-size: cover;
     background-attachment: fixed; */
-        color: black;
+    color: black;
+}
+
+.pizza-blanches {
+    background: url(/public/images/background-tomates.jpg);
+    background-color: rgba(red, green, blue, .5);
+    background-size: cover;
+    background-position-x: 32px;
+    background-attachment: fixed;
+}
+
+.pizza-tomates {
+    background: url(/public/images/background-blanches.jpg);
+    background-color: rgba(red, green, blue, .5);
+    background-size: cover;
+    background-position-x: 32px;
+    background-attachment: fixed;
+}
+
+.pizza-calzones {
+    background: url(/public/images/background-calzone.png);
+    background-color: rgba(red, green, blue, .5);
+    background-size: cover;
+    background-position-x: 32px;
+    background-attachment: fixed;
+}
+
+.boissons {
+    background: url(/public/images/background-boissons.jpg);
+    background-color: rgba(red, green, blue, .5);
+    background-size: cover;
+    background-position-x: 32px;
+    background-attachment: fixed;
+    padding: 1rem;
+}
+
+.desserts {
+    background: url(/public/images/background-dessert.png);
+    background-size: cover;
+    background-position-x: 32px;
+    background-attachment: fixed;
+}
+
+.pizza-tomates ul,
+.pizza-blanches ul,
+.pizza-calzones ul,
+.desserts ul,
+.boissons ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 6rem;
+    padding: 0;
+}
+
+.pizza-tomates ul li,
+.pizza-blanches ul li,
+.pizza-calzones ul li,
+.desserts ul li,
+.boissons ul li {
+    position: relative;
+    list-style: none;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    background: rgba(0, 0, 0, .2);
+    border-bottom: 3px solid;
+    border-left: 4px solid;
+}
+
+.pizza-tomates ul li,
+.pizza-blanches ul li,
+.pizza-calzones ul li,
+.desserts ul li {
+    max-height: 63px;
+    overflow: hidden;
+    height: auto;
+    transition: max-height .5s ease-in;
+}
+
+article.pizza-tomates>ul>li.show,
+article.pizza-blanches>ul>li.show,
+article.pizza-calzones>ul>li.show,
+article.desserts>ul>li.show {
+    max-height: 400px;
+    height: auto;
+    transition: max-height .5s ease-in;
+}
+
+.boissons ul li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 4px;
+}
+
+.contact {
+    color: #e03325;
+    border-bottom: 1px solid #34A248;
+    cursor: pointer
+}
+
+h3:not(.title) {
+    font-family: 'Marck Script', cursive;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 5rem;
+    margin-top: 4rem;
+    text-decoration: underline;
+    padding: 1rem;
+    background: url(/public/images/italian_flag_background_title.jpg);
+    background-size: 283px;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+
+.menu li h4 {
+    font-size: 19px;
+    color: green;
+    font-weight: 900;
+    width: 60%;
+    display: contents;
+    cursor: pointer;
+}
+
+.title-category {
+    font-size: 31px;
+    color: firebrick;
+    border-bottom: 2px solid;
+    width: 85%;
+    margin: auto;
+    margin-bottom: 4rem;
+    margin-top: 3rem;
+}
+
+.presentation {
+    background: url(/public/images/background-presentation.jpg);
+    background-position-y: 952px;
+    background-attachment: fixed;
+    position: relative;
+    background-size: 989px;
+}
+
+.presentation article {
+    padding: 2rem;
+}
+
+.presentation p {
+    padding: 1rem;
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Kite One', sans-serif;
+    color: white;
+    background: rgba(0, 0, 0, .9);
+}
+
+.presentation h2 {
+    text-align: center;
+    color: white;
+    font-size: 38px;
+    font-family: 'Marck Script', cursive;
+    background: #e03325;
+    border: 8px solid green;
+    border-radius: 20px;
+    margin-bottom: 0;
+    padding: 2rem;
+}
+
+.presentation h3 {
+    color: white;
+    font-size: 27px;
+}
+
+.presentation-pizza {
+    width: 70%;
+    margin: auto;
+    position: relative;
+    background-color: #34A248;
+    padding: 4rem;
+}
+
+.presentation-pizza img {
+    position: absolute;
+}
+
+.contact-tel {
+    text-align: center;
+    display: block;
+    font-size: 30px;
+    outline: 5px solid green;
+    color: white;
+    margin-top: 3rem;
+}
+
+.img-italian-flag {
+    display: block;
+    margin: auto;
+}
+
+.ingredient-details {
+    width: 86%;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px;
+    font-family: 'Kite One', sans-serif;
+}
+
+
+/* Effect with intersection observer */
+
+.fade {
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+}
+
+.fade.appear {
+    opacity: 1;
+}
+
+.from-top {
+    transform: translateY(-20%);
+}
+
+.from-left {
+    transform: translateX(-10%)
+}
+
+.from-right {
+    transform: translateX(10%)
+}
+
+.from-left.appear {
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    transition-delay: 100ms;
+}
+
+.from-top.appear {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform .5s ease-in-out, opacity .3s ease-in-out, max-height .5s ease-in-out;
+}
+
+.from-right.appear {
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    transition-delay: 100ms;
+}
+
+.schedule ul {
+    padding: 0;
+}
+
+.schedule li {
+    text-align: center;
+    list-style: none;
+    font-size: 17px;
+    font-weight: 100;
+}
+
+footer {
+    background: url(/public/images/flavor.png);
+    padding: 2rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.pizza-draw {
+    max-width: 100%;
+    position: absolute;
+    top: -7%;
+    left: 70%;
+    width: 163px;
+    display: none;
+}
+
+.pizza-vintage {
+    max-width: 100%;
+    position: absolute;
+    width: 431px;
+    max-width: 100%;
+    position: absolute;
+    width: 431px;
+    bottom: 57rem;
+    right: 65%;
+    display: none;
+}
+
+.maps {
+    display: block;
+    border: 0;
+    margin: auto;
+    max-width: 100%;
+}
+
+.schedule {
+    position: relative;
+    margin-top: 3rem;
+    flex: initial;
+    border: 5px solid green;
+    border-radius: 27px;
+    padding: 1rem;
+    color: white;
+    background: #e03325;
+    display: flex;
+    justify-content: space-around;
+}
+
+.schedule .logo-pizziamo {
+    display: none;
+    max-width: 100%;
+}
+
+.price {
+    right: 1rem;
+    top: 1rem;
+    font-weight: bold;
+    float: right;
+    font-size: large;
+}
+
+.pizza-calzones ul li .price {
+    float: none;
+    margin-left: auto;
+}
+
+.pizza-calzones ul li:nth-child(2),
+.pizza-calzones ul li:nth-child(1) {
+    max-height: 90px;
+}
+
+.price-drink {
+    font-weight: bold;
+    font-size: large;
+}
+
+.boissons h4 {
+    font-size: 21px;
+    font-family: 'Kite One', sans-serif;
+}
+
+.creator {
+    font-size: 14px;
+    align-self: center;
+}
+
+.credit-accept {
+    color: white;
+    padding: 0;
+}
+
+.paiements {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    column-gap: 1rem;
+    text-align: center;
+}
+
+.logo-restaurant {
+    width: 200px;
+}
+
+.logo-cb {
+    width: 73px;
+}
+
+.logo-cash {
+    max-width: 100%;
+    width: 70px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+}
+
+
+/* Arrow beside pizza name */
+
+li>h4>i {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-bottom: 4px;
+    margin-left: 10px;
+    transform: rotate(45deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+@keyframes scale {
+    from {
+        transform: scale(1);
     }
-    
-    .pizza-blanches {
-        background: url(/public/images/background-tomates.jpg);
-        background-color: rgba(red, green, blue, .5);
-        background-size: cover;
-        background-position-x: 32px;
-        background-attachment: fixed;
+    to {
+        transform: scale(1.2);
     }
-    
-    .pizza-tomates {
-        background: url(/public/images/background-blanches.jpg);
-        background-color: rgba(red, green, blue, .5);
-        background-size: cover;
-        background-position-x: 32px;
-        background-attachment: fixed;
+}
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateX(-70px);
     }
-    
-    .pizza-calzones {
-        background: url(/public/images/background-calzone.png);
-        background-color: rgba(red, green, blue, .5);
-        background-size: cover;
-        background-position-x: 32px;
-        background-attachment: fixed;
+    50% {
+        opacity: .5;
     }
-    
-    .boissons {
-        background: url(/public/images/background-boissons.jpg);
-        background-color: rgba(red, green, blue, .5);
-        background-size: cover;
-        background-position-x: 32px;
-        background-attachment: fixed;
-        padding: 1rem;
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
     }
-    
-    .desserts {
-        background: url(/public/images/background-dessert.png);
-        background-size: cover;
-        background-position-x: 32px;
-        background-attachment: fixed;
+}
+
+@media screen and (min-width:373px) {
+    .pizza-calzones ul li:nth-child(1) .price {
+        float: right;
+        margin-top: 9px;
     }
-    
+    .pizza-calzones ul li:nth-child(1) {
+        max-height: 63px;
+    }
+}
+
+@media screen and (min-width:425px) {
+    .presentation {
+        background-position-y: 920px;
+        background-size: 1059px;
+    }
+}
+
+@media screen and (min-width:444px) {
+    .pizza-calzones ul li:nth-child(2) {
+        max-height: 63px;
+    }
+    .pizza-calzones ul li:nth-child(2) .price {
+        float: right;
+        margin-top: 9px;
+    }
+}
+
+@media screen and (min-width:500px) {
+    .pizza-draw {
+        display: block;
+    }
+}
+
+@media screen and (min-width:650px) {
+    .boissons ul li {
+        width: 42%;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .main-header {
+        transform: none;
+        height: 100px;
+    }
+    .menu li h4 {
+        cursor: none;
+    }
+    .top-nav {
+        display: block;
+    }
+    .main-header nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 22px;
+    }
     .pizza-tomates ul,
     .pizza-blanches ul,
     .pizza-calzones ul,
-    .desserts ul,
-    .boissons ul {
+    .boissons ul,
+    .desserts ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        column-gap: 6rem;
+        -moz-column-gap: 6rem;
+        column-gap: 5px;
         padding: 0;
     }
-    
-    .pizza-tomates ul li,
-    .pizza-blanches ul li,
-    .pizza-calzones ul li,
-    .desserts ul li,
-    .boissons ul li {
-        position: relative;
-        list-style: none;
-        padding: 10px;
-        margin-top: 10px;
-        width: 100%;
-        background: rgba(0, 0, 0, .2);
-        border-bottom: 3px solid;
-        border-left: 4px solid;
-    }
-    
     .pizza-tomates ul li,
     .pizza-blanches ul li,
     .pizza-calzones ul li,
     .desserts ul li {
-        max-height: 63px;
-        overflow: hidden;
-        height: auto;
-        transition: max-height .5s ease-in;
+        width: 47%;
+        max-height: none;
     }
-    
-    article.pizza-tomates>ul>li.show,
-    article.pizza-blanches>ul>li.show,
-    article.pizza-calzones>ul>li.show,
-    article.desserts>ul>li.show {
-        max-height: 400px;
-        height: auto;
-        transition: max-height .5s ease-in;
-    }
-    
-    .boissons ul li {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        column-gap: 4px;
-    }
-    
-    .presentation h3 {
-        font-size: 27px;
-    }
-    
-    h3:not(.title) {
-        font-family: 'Marck Script', cursive;
-        text-align: center;
-        font-size: 25px;
-        margin-bottom: 5rem;
-        margin-top: 4rem;
-        text-decoration: underline;
-        padding: 1rem;
-        background: url(/public/images/italian_flag_background_title.jpg);
-        background-size: 283px;
-        background-position-x: center;
-        background-repeat: no-repeat;
-    }
-    
-    .menu li h4 {
-        font-size: 19px;
-        color: green;
-        font-weight: 900;
-        width: 60%;
-        display: contents;
-        cursor: pointer;
-    }
-    
-    .title-category {
-        font-size: 31px;
-        color: firebrick;
-        border-bottom: 2px solid;
-        width: 85%;
-        margin: auto;
-        margin-bottom: 4rem;
-        margin-top: 3rem;
-    }
-    
-    .presentation {
-        background: url(/public/images/background-presentation.jpg);
-        background-position-y: 952px;
-        background-attachment: fixed;
-        position: relative;
-        background-size: 989px;
-    }
-    
-    .presentation article {
-        padding: 2rem;
-    }
-    
-    .presentation p {
-        padding: 1rem;
-        text-align: center;
-        font-size: 20px;
-        font-family: 'Kite One', sans-serif;
-        color: white;
-        background: rgba(0, 0, 0, .9);
-    }
-    
-    .presentation h2 {
-        text-align: center;
-        color: white;
-        font-size: 38px;
-        font-family: 'Marck Script', cursive;
-        background: #e03325;
-        border: 8px solid green;
-        border-radius: 20px;
-        margin-bottom: 0;
-        padding: 2rem;
-    }
-    
-    .presentation h3 {
-        color: white;
-    }
-    
-    .contact-tel {
-        text-align: center;
-        display: block;
-        font-size: 30px;
-        outline: 5px solid green;
-        color: white;
-        margin-top: 3rem;
-    }
-    
-    .img-italian-flag {
-        display: block;
-        margin: auto;
-    }
-    
-    .ingredient-details {
-        width: 86%;
-        font-weight: 600;
-        font-size: 18px;
-        padding: 10px;
-        font-family: 'Kite One', sans-serif;
-    }
-    /* Effect with intersection observer */
-    
-    .fade {
-        opacity: 0;
-        transition: opacity .3s ease-in-out;
-    }
-    
-    .fade.appear {
-        opacity: 1;
-    }
-    
-    .from-top {
-        transform: translateY(-20%);
-    }
-    
-    .from-left {
-        transform: translateX(-10%)
-    }
-    
-    .from-right {
-        transform: translateX(10%)
-    }
-    
-    .from-left.appear {
-        opacity: 1;
-        transform: translateX(0);
-        transition: transform 1s ease-in-out, opacity 1s ease-in-out;
-        transition-delay: 100ms;
-    }
-    
-    .from-top.appear {
-        opacity: 1;
-        transform: translateY(0);
-        transition: transform .5s ease-in-out, opacity .3s ease-in-out, max-height .5s ease-in-out;
-    }
-    
-    .from-right.appear {
-        opacity: 1;
-        transform: translateX(0);
-        transition: transform 1s ease-in-out, opacity 1s ease-in-out;
-        transition-delay: 100ms;
-    }
-    
-    .schedule ul {
-        padding: 0;
-    }
-    
-    .schedule li {
-        text-align: center;
-        list-style: none;
-        font-size: 17px;
-        font-weight: 100;
-    }
-    
-    footer {
-        background: url(/public/images/flavor.png);
-        padding: 2rem;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-    }
-    
-    .pizza-draw {
-        max-width: 100%;
-        position: absolute;
-        top: -7%;
-        left: 70%;
-        width: 163px;
-        display: none;
-    }
-    
-    .pizza-vintage {
-        max-width: 100%;
-        position: absolute;
-        width: 431px;
-        max-width: 100%;
-        position: absolute;
-        width: 431px;
-        bottom: 57rem;
-        right: 65%;
-        display: none;
-    }
-    
-    .maps {
-        display: block;
-        border: 0;
-        margin: auto;
-        max-width: 100%;
-    }
-    
-    .schedule {
-        position: relative;
-        margin-top: 3rem;
-        flex: initial;
-        border: 5px solid green;
-        border-radius: 27px;
-        padding: 1rem;
-        color: white;
-        background: #e03325;
-        display: flex;
-        justify-content: space-around;
-    }
-    
-    .schedule .logo-pizziamo {
-        display: none;
-        max-width: 100%;
-    }
-    
-    .price {
-        right: 1rem;
-        top: 1rem;
-        font-weight: bold;
-        float: right;
-        font-size: large;
-    }
-    
-    .pizza-calzones ul li .price {
-        float: none;
-        margin-left: auto;
-    }
-    
     .pizza-calzones ul li:nth-child(2) {
-        max-height: 90px;
+        width: 47%;
+        max-height: none;
     }
-    
-    .price-drink {
-        font-weight: bold;
-        font-size: large;
+    .boissons ul li {
+        width: 30%;
     }
-    
     .boissons h4 {
-        font-size: 21px;
-        font-family: 'Kite One', sans-serif;
+        font-size: 22px;
     }
-    
-    .creator {
-        font-size: 14px;
-        align-self: center;
+    .ingredient-details {
+        font-size: 18px;
+        /* letter-spacing: 5px; */
     }
-    
-    .credit-accept {
-        color: white;
-        padding: 0;
+    .contact-tel {
+        width: 50%;
+        margin: auto;
+        font-size: 40px;
     }
-    
-    .paiements {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        column-gap: 1rem;
-        text-align: center;
+    .carousel .carousel-item {
+        height: 640px;
     }
-    
-    .logo-restaurant {
-        width: 200px;
+    .presentation h3 {
+        font-size: 35px;
     }
-    
-    .logo-cb {
-        width: 73px;
+    .presentation h2 {
+        font-size: 60px;
     }
-    
-    .logo-cash {
-        max-width: 100%;
-        width: 70px;
-    }
-    
-    .footer {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        color: white;
-    }
-    /* Arrow beside pizza name */
-    
     li>h4>i {
-        border: solid black;
-        border-width: 0 3px 3px 0;
-        display: inline-block;
-        padding: 3px;
-        margin-bottom: 4px;
-        margin-left: 10px;
-        transform: rotate(45deg);
+        display: none;
     }
-    
-    .up {
-        transform: rotate(-135deg);
-        -webkit-transform: rotate(-135deg);
+    .title-category {
+        width: 40%;
     }
-    
-    @keyframes scale {
-        from {
-            transform: scale(1);
-        }
-        to {
-            transform: scale(1.2);
-        }
+    .pizza-draw {
+        top: -11%;
+        left: 64%;
+        width: 275px;
     }
-    
-    @keyframes slide-in {
-        0% {
-            opacity: 0;
-            transform: translateX(-70px);
-        }
-        50% {
-            opacity: .5;
-        }
-        100% {
-            opacity: 1;
-            transform: translateX(0px);
-        }
+    .pizza-category .pizza-category-nav {
+        background: url(/public/images/flavor.png);
+        width: 213px;
     }
-    
-    @media screen and (min-width:355px) {
-        .pizza-calzones ul li:nth-child(2) {
-            max-height: 63px;
-        }
-        .pizza-calzones ul li .price {
-            float: right;
-        }
+    .menu-carte .menu-carte-nav {
+        background: url(/public/images/flavor.png);
+        width: 213px;
     }
-    
-    @media screen and (min-width:400px) {
-        .pizza-calzones ul li .price {
-            float: right;
-        }
+    .top-nav {
+        bottom: 0;
     }
-    
-    @media screen and (min-width:425px) {
-        .presentation {
-            background-position-y: 920px;
-            background-size: 1059px;
-        }
+}
+
+@media screen and (min-width:838px) {
+    .schedule .logo-pizziamo {
+        display: block;
+        width: 303px;
     }
-    
-    @media screen and (min-width:500px) {
-        .pizza-draw {
-            display: block;
-        }
+}
+
+@media screen and (min-width:953px) {
+    .presentation {
+        background-position-y: 828px;
+        background-size: 1244px;
     }
-    
-    @media screen and (min-width:650px) {
-        .boissons ul li {
-            width: 42%;
-        }
+    .presentation p {
+        font-size: 21px;
     }
-    
-    @media screen and (min-width:768px) {
-        .main-header {
-            transform: none;
-            height: 100px;
-        }
-        .menu li h4 {
-            cursor: none;
-        }
-        .top-nav {
-            display: block;
-        }
-        .main-header nav ul {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            margin-top: 22px;
-        }
-        .pizza-tomates ul,
-        .pizza-blanches ul,
-        .pizza-calzones ul,
-        .boissons ul,
-        .desserts ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            -moz-column-gap: 6rem;
-            column-gap: 5px;
-            padding: 0;
-        }
-        .pizza-tomates ul li,
-        .pizza-blanches ul li,
-        .pizza-calzones ul li,
-        .desserts ul li {
-            width: 47%;
-            max-height: none;
-        }
-        .pizza-calzones ul li:nth-child(2) {
-            width: 47%;
-            max-height: none;
-        }
-        .boissons ul li {
-            width: 30%;
-        }
-        .boissons h4 {
-            font-size: 22px;
-        }
-        .ingredient-details {
-            font-size: 18px;
-            /* letter-spacing: 5px; */
-        }
-        .contact-tel {
-            width: 50%;
-            margin: auto;
-            font-size: 40px;
-        }
-        .carousel .carousel-item {
-            height: 640px;
-        }
-        .presentation h3 {
-            font-size: 35px;
-        }
-        .presentation h2 {
-            font-size: 60px;
-        }
-        li>h4>i {
-            display: none;
-        }
-        .title-category {
-            width: 40%;
-        }
-        .pizza-draw {
-            top: -11%;
-            left: 64%;
-            width: 275px;
-        }
-        .pizza-category .pizza-category-nav {
-            background: url(/public/images/flavor.png);
-            width: 213px;
-        }
-        .menu-carte .menu-carte-nav {
-            background: url(/public/images/flavor.png);
-            width: 213px;
-        }
+}
+
+@media screen and (min-width:1000px) {
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 5rem;
+        width: 90%;
+        margin: auto;
+        flex-wrap: wrap;
     }
-    
-    @media screen and (min-width:838px) {
-        .schedule .logo-pizziamo {
-            display: block;
-            width: 303px;
-        }
+    .pizza-tomates ul li,
+    .pizza-blanches ul li,
+    .pizza-calzones ul li,
+    .desserts ul li {
+        height: auto;
     }
-    
-    @media screen and (min-width:953px) {
-        .presentation {
-            background-position-y: 828px;
-            background-size: 1244px;
-        }
+    .pizza-vintage {
+        display: block;
     }
-    
-    @media screen and (min-width:1000px) {
-        footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            column-gap: 5rem;
-            width: 90%;
-            margin: auto;
-            flex-wrap: wrap;
-        }
-        .pizza-tomates ul li,
-        .pizza-blanches ul li,
-        .pizza-calzones ul li,
-        .desserts ul li {
-            height: auto;
-        }
-        .pizza-vintage {
-            display: block;
-        }
-        .pizza-draw {
-            top: -11%;
-            left: 66%;
-            width: 275px;
-        }
+    .pizza-draw {
+        top: -11%;
+        left: 66%;
+        width: 275px;
     }
-    
-    @media screen and (min-width:1024px) {
-        .pizza-draw {
-            top: -11%;
-            left: 69%;
-            width: 275px;
-        }
+}
+
+@media screen and (min-width:1024px) {
+    .pizza-draw {
+        top: -11%;
+        left: 69%;
+        width: 275px;
     }
-    
-    @media screen and (min-width:1230px) {
-        .boissons ul li {
-            width: 20%;
-        }
+}
+
+@media screen and (min-width:1200px) {
+    h1 {
+        bottom: 0;
+        right: 20%;
+        width: 100%;
     }
-    
-    @media screen and (min-width:1418px) {
-        .presentation {
-            background-position-y: 778px;
-            background-size: 1874px;
-        }
+}
+
+@media screen and (min-width:1230px) {
+    .boissons ul li {
+        width: 20%;
     }
-    
-    @media screen and (min-width:1874px) {
-        .presentation {
-            background-position-y: 878px;
-            background-size: 2671px;
-        }
+}
+
+@media screen and (min-width:1418px) {
+    .presentation {
+        background-position-y: 778px;
+        background-size: 1874px;
     }
+}
+
+@media screen and (min-width:1550px) {
+    h1 {
+        right: 57%;
+    }
+}
+
+@media screen and (min-width:1874px) {
+    .presentation {
+        background-position-y: 878px;
+        background-size: 2671px;
+    }
+}

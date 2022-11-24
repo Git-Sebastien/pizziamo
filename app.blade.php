@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="robots" content="noindex, nofollow" />
-        <meta name="description" content="Bienvenue chez Pizziamo, votre nouvelle pizzaria à la ravoire vous propose un large choix de produit frais et une carte de pizza italienne cuite aux feux à boix. Décrouvrez aussi un large choix de dessert et apéritifs le tous fais avec humour dans la joie et la bonne humeur !">
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}">
+        <meta name="description" content="Bienvenue chez Pizziamo, votre nouvelle pizzaria à La ravoire vous propose un large choix de produit frais et une carte de pizza italienne cuite aux feux à boix. Décrouvrez aussi un large choix de dessert et apéritifs le tous fais avec humour dans la joie et la bonne humeur !">
 
         <title>@yield('title')</title>
 
