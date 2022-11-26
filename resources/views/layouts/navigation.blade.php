@@ -1,10 +1,10 @@
-<span class="logo"><img src="{{ asset('images/logo-pizziamo.png') }}" alt=""></span>
+<span class="logo"><img src="{{ asset('images/logo-pizziamo.webp') }}" alt="Logo Pizziamo da Gabriele"></span>
 <header class="main-header" id="main-header">
 
     <nav class="top-nav" id="top-nav">  
         <ul>
             <li><h1 class="d-md-none d-xl-block">Pizziamo da Gabrielle</h1></li>
-            <li><a href="">Accueil</a></li>
+            <li><a href="#">Accueil</a></li>
             <li class="pizza-category">Nos pizzas<i></i>
                 <ul class="pizza-category-nav">
                     <li><a href="#pizza-blanches">Les blanches</a></li>
@@ -18,7 +18,7 @@
                     <li><a href="#desserts">Les desserts</a></li>
                 </ul>
             </li>
-            <li><a href="">Contact</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 </header>

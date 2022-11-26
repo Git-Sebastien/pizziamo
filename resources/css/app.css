@@ -205,8 +205,8 @@ h1 {
 
 .logo {
     position: fixed;
-    top: -11px;
-    left: -25px;
+    top: -13px;
+    left: -18px;
     z-index: 300;
     width: 127px;
 }
@@ -224,10 +224,10 @@ h1 {
 .main-header {
     position: fixed;
     top: 0;
-    height: 338px;
+    height: 340px;
     z-index: 2;
     width: 100%;
-    background: url(/public/images/flavor.png);
+    background: url(/public/images/flavor.webp);
     transform: translateY(-251px);
     transition: transform .3s;
 }
@@ -317,7 +317,7 @@ h1 {
     margin-top: 100px;
 }
 
-.carousel-caption h4 {
+.carousel-caption h2 {
     font-size: 48px;
     color: black;
     font-family: 'Marck Script', cursive;
@@ -332,7 +332,7 @@ h1 {
 .carousel-caption {
     bottom: 7.25rem;
     background-color: #f0f8ffd1;
-    width: 40%;
+    width: 53%;
     margin: auto;
     border-radius: 30px;
 }
@@ -427,7 +427,7 @@ h1 {
 }
 
 .pizza-blanches {
-    background: url(/public/images/background-tomates.jpg);
+    background: url(/public/images/background-tomates.webp);
     background-color: rgba(red, green, blue, .5);
     background-size: cover;
     background-position-x: 32px;
@@ -435,7 +435,7 @@ h1 {
 }
 
 .pizza-tomates {
-    background: url(/public/images/background-blanches.jpg);
+    background: url(/public/images/background-blanches.webp);
     background-color: rgba(red, green, blue, .5);
     background-size: cover;
     background-position-x: 32px;
@@ -443,7 +443,7 @@ h1 {
 }
 
 .pizza-calzones {
-    background: url(/public/images/background-calzone.png);
+    background: url(/public/images/background-calzone.webp);
     background-color: rgba(red, green, blue, .5);
     background-size: cover;
     background-position-x: 32px;
@@ -451,7 +451,7 @@ h1 {
 }
 
 .boissons {
-    background: url(/public/images/background-boissons.jpg);
+    background: url(/public/images/background-boissons.webp);
     background-color: rgba(red, green, blue, .5);
     background-size: cover;
     background-position-x: 32px;
@@ -460,7 +460,7 @@ h1 {
 }
 
 .desserts {
-    background: url(/public/images/background-dessert.png);
+    background: url(/public/images/background-dessert.webp);
     background-size: cover;
     background-position-x: 32px;
     background-attachment: fixed;
@@ -525,7 +525,8 @@ article.desserts>ul>li.show {
     cursor: pointer
 }
 
-h3:not(.title) {
+
+/* span:not(.title) {
     font-family: 'Marck Script', cursive;
     text-align: center;
     font-size: 25px;
@@ -537,9 +538,37 @@ h3:not(.title) {
     background-size: 283px;
     background-position-x: center;
     background-repeat: no-repeat;
+} */
+
+span#boissons,
+#desserts,
+#pizza,
+#find {
+    font-family: 'Marck Script', cursive;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 5rem;
+    margin-top: 4rem;
+    text-decoration: underline;
+    padding: 1rem;
+    background: url(/public/images/italian_flag_background_title.webp);
+    background-size: 283px;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    display: block;
 }
 
-.menu li h4 {
+
+/* .menu li>p {
+    font-size: 19px;
+    color: green;
+    font-weight: 900;
+    width: 60%;
+    display: contents;
+    cursor: pointer;
+} */
+
+.card-title {
     font-size: 19px;
     color: green;
     font-weight: 900;
@@ -559,7 +588,7 @@ h3:not(.title) {
 }
 
 .presentation {
-    background: url(/public/images/background-presentation.jpg);
+    background: url(/public/images/background-presentation.webp);
     background-position-y: 952px;
     background-attachment: fixed;
     position: relative;
@@ -635,7 +664,7 @@ h3:not(.title) {
 
 .fade {
     opacity: 0;
-    transition: opacity .3s ease-in-out;
+    transition: opacity .5s ease-in-out;
 }
 
 .fade.appear {
@@ -647,7 +676,7 @@ h3:not(.title) {
 }
 
 .from-left {
-    transform: translateX(-10%)
+    transform: translateX(-5%)
 }
 
 .from-right {
@@ -686,7 +715,7 @@ h3:not(.title) {
 }
 
 footer {
-    background: url(/public/images/flavor.png);
+    background: url(/public/images/flavor.webp);
     padding: 2rem;
     background-repeat: no-repeat;
     background-size: cover;
@@ -808,7 +837,7 @@ footer {
 
 /* Arrow beside pizza name */
 
-li>h4>i {
+li>p>i {
     border: solid black;
     border-width: 0 3px 3px 0;
     display: inline-block;
@@ -821,6 +850,10 @@ li>h4>i {
 .up {
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
+}
+
+.d-block {
+    display: block;
 }
 
 @keyframes scale {
@@ -890,7 +923,7 @@ li>h4>i {
         transform: none;
         height: 100px;
     }
-    .menu li h4 {
+    .menu li>p {
         cursor: none;
     }
     .top-nav {
@@ -921,7 +954,8 @@ li>h4>i {
         width: 47%;
         max-height: none;
     }
-    .pizza-calzones ul li:nth-child(2) {
+    .pizza-calzones ul li:nth-child(2),
+    .pizza-calzones ul li:nth-child(1) {
         width: 47%;
         max-height: none;
     }
@@ -949,7 +983,7 @@ li>h4>i {
     .presentation h2 {
         font-size: 60px;
     }
-    li>h4>i {
+    li>p>i {
         display: none;
     }
     .title-category {
@@ -961,11 +995,11 @@ li>h4>i {
         width: 275px;
     }
     .pizza-category .pizza-category-nav {
-        background: url(/public/images/flavor.png);
+        background: url(/public/images/flavor.webp);
         width: 213px;
     }
     .menu-carte .menu-carte-nav {
-        background: url(/public/images/flavor.png);
+        background: url(/public/images/flavor.webp);
         width: 213px;
     }
     .top-nav {
@@ -1027,7 +1061,7 @@ li>h4>i {
 @media screen and (min-width:1200px) {
     h1 {
         bottom: 0;
-        right: 20%;
+        right: 6%;
         width: 100%;
     }
 }
