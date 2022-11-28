@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Pizziamo da Gabriele a La ravoire. Pizzas italiennes a base de produit frais!')
+@section('title','Pizziamo da Gabriele - Pizzas italiennes a base de produit frais!')
 @section('home')
 
 

@@ -19,13 +19,12 @@
         </ul>
     </article>
     @endforeach
-
     <span id="desserts" class="fade">Nos desserts</span>
     <article class="desserts">
         <ul>
         @foreach ($desserts as $dessert)
             <li class="fade from-top" id="pizza-list">
-                <p id="pizza-title fade from-right" class="card-title">{{ $dessert->dessert_name }} <i></i></p>
+                <p id="pizza-title" class="card-title">{{ $dessert->dessert_name }} <i></i></p>
                 @if (Str::length($dessert->dessert_price) > 2)
                     <span class="price">{{ $dessert->dessert_price.'0' }}€</span>  
                 @else

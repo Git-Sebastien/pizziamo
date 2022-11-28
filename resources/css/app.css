@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities; */
 
+@import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@font-face {
+    font-family: "Kite One";
+    src: url(/public/fonts/KiteOne-Regular.ttf) format("ttf"),
+}
+
+@font-face {
+    font-family: "Marck Script";
+    src: url(/public/fonts/MarckScript-Regular.ttf) format("ttf"), url(/public/fonts/marckscript-regular-webfont.woff2) format('woff2'), url(/public/fonts/marckscript-regular-webfont.woff) format('woff'), url(/public/fonts/marckscript-regular-webfont.ttf) format('truetype'), url(/public/fonts/marckscript-regular-webfont.svg) format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 /* Dashboard */
 
@@ -546,14 +559,15 @@ span#boissons,
 #find {
     font-family: 'Marck Script', cursive;
     text-align: center;
-    font-size: 25px;
+    font-size: 28px;
     margin-bottom: 5rem;
     margin-top: 4rem;
     text-decoration: underline;
     padding: 1rem;
     background: url(/public/images/italian_flag_background_title.webp);
-    background-size: 283px;
+    background-size: 310px;
     background-position-x: center;
+    background-position-y: 4px;
     background-repeat: no-repeat;
     display: block;
 }
@@ -589,10 +603,9 @@ span#boissons,
 
 .presentation {
     background: url(/public/images/background-presentation.webp);
-    background-position-y: 952px;
-    background-attachment: fixed;
+    background-position-y: 1353px;
     position: relative;
-    background-size: 989px;
+    background-size: 1371px;
 }
 
 .presentation article {
@@ -613,7 +626,7 @@ span#boissons,
     color: white;
     font-size: 38px;
     font-family: 'Marck Script', cursive;
-    background: #e03325;
+    background: #bb2216;
     border: 8px solid green;
     border-radius: 20px;
     margin-bottom: 0;
@@ -711,7 +724,8 @@ span#boissons,
     text-align: center;
     list-style: none;
     font-size: 17px;
-    font-weight: 100;
+    color: black;
+    font-weight: 700;
 }
 
 footer {
@@ -789,6 +803,7 @@ footer {
 .price-drink {
     font-weight: bold;
     font-size: large;
+    margin-top: 8px;
 }
 
 .boissons h4 {
@@ -887,12 +902,16 @@ li>p>i {
     .pizza-calzones ul li:nth-child(1) {
         max-height: 63px;
     }
+    .presentation {
+        background-position-y: 1183px;
+        background-size: 1213px;
+    }
 }
 
 @media screen and (min-width:425px) {
     .presentation {
-        background-position-y: 920px;
-        background-size: 1059px;
+        background-position-y: 1098px;
+        background-size: 1128px;
     }
 }
 
@@ -912,6 +931,13 @@ li>p>i {
     }
 }
 
+@media screen and (min-width:530px) {
+    .presentation {
+        background-position-y: 1098px;
+        background-size: 1387px;
+    }
+}
+
 @media screen and (min-width:650px) {
     .boissons ul li {
         width: 42%;
@@ -924,7 +950,7 @@ li>p>i {
         height: 100px;
     }
     .menu li>p {
-        cursor: none;
+        cursor: default;
     }
     .top-nav {
         display: block;
@@ -953,6 +979,7 @@ li>p>i {
     .desserts ul li {
         width: 47%;
         max-height: none;
+        cursor: default
     }
     .pizza-calzones ul li:nth-child(2),
     .pizza-calzones ul li:nth-child(1) {
@@ -981,7 +1008,7 @@ li>p>i {
         font-size: 35px;
     }
     .presentation h2 {
-        font-size: 60px;
+        font-size: 43px;
     }
     li>p>i {
         display: none;
@@ -1004,6 +1031,10 @@ li>p>i {
     }
     .top-nav {
         bottom: 0;
+    }
+    .presentation {
+        background-position-y: 1098px;
+        background-size: 1665px;
     }
 }
 
@@ -1069,6 +1100,13 @@ li>p>i {
 @media screen and (min-width:1230px) {
     .boissons ul li {
         width: 20%;
+    }
+}
+
+@media screen and (min-width:1280px) {
+    .presentation {
+        background-position-y: 828px;
+        background-size: 1411px;
     }
 }
 

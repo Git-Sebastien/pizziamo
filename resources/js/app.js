@@ -1,13 +1,13 @@
 import './bootstrap';
 
+import '../../node_modules/bootstrap/dist/js/bootstrap'
+
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;
 
 Alpine.start();
 
-
-const cls = ["show", "expends"];
 const burger = document.getElementById('burger');
 const mainHeader = document.querySelector('#main-header')
 const topNav = document.querySelector('#top-nav')
@@ -19,34 +19,40 @@ const menuCarte = document.querySelector("#top-nav > ul > li.menu-carte")
 const menuCarteNav = document.querySelector("#top-nav > ul > li.menu-carte > ul")
 const categoryPizzaNav = document.querySelector("#top-nav > ul > li.pizza-category > ul")
 document.querySelector("#top-nav > ul > li.menu-carte > ul")
-const linkCategoryPizza = document.querySelectorAll("#top-nav > ul > li.pizza-category > ul > li > a")
-const linkMenuCarte = document.querySelectorAll("#top-nav > ul > li.menu-carte > ul > li > a")
 let arrayOfPizza = [categoryPizza, menuCarte];
 let arrayOfMenu = [categoryPizzaNav, menuCarteNav]
-let arrayOfLink = [linkCategoryPizza, linkMenuCarte]
 let headerStyleHeight = getComputedStyle(mainHeader)
 let headerHeight = parseInt(headerStyleHeight.height.slice(0, 3))
 let heightToAdd = 250
-let isOpen = false
 let totalHeight = headerHeight + heightToAdd
 let heightToString = totalHeight.toString()
-    // let menu = null
+let isOpen = false;
+
+console.log(isOpen)
+
+
 
 
 arrayOfPizza.forEach((elementMenu, indexMenu) => {
     arrayOfMenu.forEach((elementSubMenu, indexSubMenu) => {
         elementMenu.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                mainHeader.classList.add('expends')
-            }
 
             if (indexMenu == indexSubMenu) {
                 elementSubMenu.classList.toggle('show')
+                if (window.innerWidth <= 768) {
+                    mainHeader.classList.toggle('expends')
+                }
             } else {
                 elementSubMenu.classList.remove('show')
             }
+
+            if (elementSubMenu.classList.contains('show') && !mainHeader.classList.contains('expends') && window.innerWidth <= 768) {
+                mainHeader.classList.toggle('expends')
+            }
+
         })
         elementSubMenu.addEventListener('click', () => {
+            console.log(isOpen)
             topNav.classList.remove('d-block')
             mainHeader.classList.remove('show')
             burger.classList.remove('active')
@@ -64,7 +70,6 @@ if (window.innerWidth <= 768) {
             pizzaTitle.forEach((element, indexTitle) => {
                 if (indexTitle == indexLi) {
                     elementLi.classList.toggle('show')
-                    elementLi.style.cursor = "pointer"
                 }
             })
             arrow.forEach((elementArrow, indexArrow) => {
