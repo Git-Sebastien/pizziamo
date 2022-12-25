@@ -3,19 +3,25 @@
 @section('title','Ajouter un ingrédient')
 
 @section('add-ingredient')
+<section class="row main-content">
+    <x-layout>
+        <article class="col-sm-8 pizzas">
+            <h1>Ajouter un inrédient</h1>
+            <form action="{{ route('ingredient.add') }}" method="POST" class="form-dashboard">
+                @csrf
+                <label for="ingredienet_name">Nom de l'ingrédient</label>
+                <input type="text" name="ingredient_name" id="ingredient-name" required>
+                <label for="ingredient type">Type d'ingredient</label>
+                <select name="ingredient_type" id="" required>
+                    <option value="">Chosir une catégorie</option>
+                    @foreach ($ingredient_types as $types)
+                    <option value="{{ $types->id }}">{{ $types->ingredient_type }}</option>
+                    @endforeach
+                </select>
+                <button type="submit" class="btn btn-success btn-sm">Ajouter</button>
+            </form>
+        </article>
+    </x-layout>
+</section>
 
-<form action="{{ route('ingredient.add') }}" method="POST">
-    @csrf
-    <label for="ingredienet_name">Nom de l'ingrédient</label>
-    <input type="text" name="ingredient_name" id="ingredient-name">
-    <label for="ingredient type">Type d'ingredient</label>
-    <select name="ingredient_type" id="">
-        <option value="">Chosir une catégorie</option>
-        @foreach ($ingredient_types  as $types)
-            <option value="{{ $types->id }}">{{ $types->ingredient_type }}</option>
-        @endforeach
-    </select>
-    <button type="submit" class="btn btn-primary">Ajouter</button>
-</form>
-    
 @endsection

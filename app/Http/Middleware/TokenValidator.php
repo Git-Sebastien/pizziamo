@@ -21,14 +21,12 @@ class TokenValidator
     public function handle(Request $request, Closure $next)
     {
         $token = $request->session()->get('token');
-        $users = User::get('personal_token');
+        $personal_token = $request->session()->get('personal_token');
+        // dump($request);
 
-        foreach($users as $user){
-            if (!Hash::check($token, $user->personal_token)) {
-                return redirect('/');
-            }
+        if (!Hash::check($token, $personal_token)) {
+            return redirect('/');
         }
-        
         return $next($request);
     }
 }

@@ -13,7 +13,7 @@
         <article class="schedule col-md-12">
             <img src="{{ asset('images/logo-pizziamo.webp') }}"  width=""  height="" alt="Logo de pizziamo da Gabriele" class="logo-pizziamo">
             <ul>
-                <li><h4>Ouver tous les jours sauf le lundi</h4></li>
+                <li><h4>Ouvert tous les jours sauf le lundi</h4></li>
                 <li>Mardi  10h00 à 14h30 - 18h30 à 22h30</li>
                 <li>Mercredi de 10h00 a 14h30 - 18h30 à 22h30</li>
                 <li>Jeudi  de 10h00 a 14h30 - 18h30 à 22h30</li>
@@ -25,6 +25,7 @@
                     <address>350 avenue louis armand - 73490 La Ravoire
                     <li>07.69.74.77.96</li>
                     </address>
+                    <li><a href="mailto:pizziamo@outlook.fr">Pizziamo@outlook.fr</a></li>
                 </li>
             </ul>
         </article>
@@ -32,6 +33,6 @@
         <img src="{{ asset('images/pizzeria-vintage.webp') }}" width=""  height="" alt="" class="pizza-vintage">
         <div class="footer">
             <span>&copy; Copyright 2022 Pizziamo da Gabriele</span>
-            <span class="creator">Site crée par Ancelin Sébastien</span>
+            <span class="creator">Site créé par <a href="https://ancelin-sebastien-folio.fr/">Ancelin Sébastien</a></span>
         </div>
 </footer>

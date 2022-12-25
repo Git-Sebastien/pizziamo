@@ -3,149 +3,117 @@
 @section('title','Administration')
 
 @section('dashboard')
-    
-<div class="row p-2 dashboard">
-    <h2>Liste des pizzas au menu</h2>
-    <nav class="main-nav col-3">
-        <ul class="list-group mt-4">
-            <h2>Pizza</h2>
-            <li class="list-group-item"><a href="{{ route('pizza.add') }}">Ajouter une pizza</a></li>
-            <li class="list-group-item"><a href="{{ route('ajouter.ingredient') }}">Ajouter un ingredient</a></li>
-            <li class="list-group-item">Les pizzas non disponible</li>
-        </ul>
-        <ul class="list-group">
-            <h2>Dessert</h2>
-            <li class="list-group-item"><a href="{{ route('ajouter.dessert') }}">{{ __('Ajouter un dessert') }}</a></li>
-        </ul>
-        <ul class="list-group">
-            <h2>Boissons</h2>
-            <li class="list-group-item"><a href="{{ route('ajouter.drink') }}">Ajouter une boisson</a></li>
-        </ul>
-    </nav>
-   
-    <section id="recap_all" class="col-md-4 p-3 recap-all">
-        <article class="pizza-recap col-sm-12 col-md-12 col-lg-5 p-2">
-             <div class="blanches">
-                    <h2 class="mb-5">Les blanches</h2>
-                    <ul class="list-group">
+
+<x-modal></x-modal>
+
+<main>
+    <section class="row main-content">
+        <x-layout>
+            <article class="col-sm-8 pizzas">
+                <article class="row col-lg-12">
+                    <span id="pizzas"></span>
+                    @foreach ($categories as $category)
+                    <h4 class="text-center title-category">{{ $category->category_name }}</h4>
+                    <ul>
                         @foreach ($pizzas as $pizza)
-                            @if ($pizza->fk_category_id == 1)
-                                <li class="list-group-item">
-                                    <h5 class="mb-3">{{ $pizza->pizza_name }}</h5>
-                                    <span class="d-flex justify-content-end">
-                                        <a href="{{ route('pizza.edit',$pizza->id ?? "") }}" class="btn btn-outline-warning btn-sm">
+                            @if ($pizza->fk_category_id === $category->id)
+                                <li class="col-xl-4 col-lg-6 col-md-12 col-sm-12 mt-4 pizza-list">
+                                    <p class="card-title pizza-title">
+                                        {{ $pizza->pizza_name }}
+                                    </p> 
+                                    <span class="price">{{ $pizza->pizza_price.',00' }}€</span>
+                                    <p class="ingredient-details">
+                                        @foreach ($pizza->ingredients as $ingredient)
+                                            {{ $ingredient->ingredient_name}}<br>
+                                        @endforeach
+                                        <div class="btn-action">
+                                            <a href="{{ route('pizza.edit',$pizza->id ?? "") }}" class="btn btn-warning btn-sm">
                                             Modifier
-                                        </a>
-                                        <form action="{{ route('pizza.delete',$pizza->id ?? "") }}" method="post" class="d-inline">@csrf  
-                                            <button type="submit" class="card-link btn btn-outline-danger btn-sm">{{ __('Supprimer') }}</button>
-                                        </form> 
-                                    </span>
+                                            </a>
+                                                <form action="{{ route('item.delete', ["id" => $pizza->id ?? "","keep_or_delete" => 1,"item" => 'Pizza']) }}" method="post" class="d-inline">@csrf
+                                                <button type="submit" class="card-link btn btn-danger btn-sm" value="{{ $pizza->pizza_name }}"> {{ __('Supprimer')  }}</button>
+                                            </form>
+                                        </div>
+                                    </p>
                                 </li>
                             @endif
                         @endforeach
-                    </ul>
-                </div>
-        </article>
-            <article class="col-sm-12 col-md-12 col-lg-5 p-2">
-                <div class="tomates">
-                    <h2 class="mb-5">Les tomates</h2>
-                    <ul class="list-group">
-                        @foreach ($pizzas as $pizza)
-                            @if ($pizza->fk_category_id == 2)
-                                <li class="list-group-item">
-                                    <h5 class="mb-3">{{ $pizza->pizza_name }}</h5>
-                                    <span class="d-flex justify-content-end">
-                                        <a href="{{ route('pizza.edit',$pizza->id ?? "") }}" class="btn btn-outline-warning btn-sm">
+                        @if ($category->id === 4)
+                            <span id="plats-maisons"></span>
+                            @foreach ($dishs as $dish)
+                                <li class="p-2 mt-3">
+                                        <p id="pizza-title" class="card-title">{{ $dish->dish_name }} <i></i></p>
+                                    @if (Str::length($dish->dish_price) > 2)
+                                        <span class="price">{{ $dish->dish_price.'0' }}€</span>
+                                    @else
+                                        <span class="price">{{ $dish->dish_price.',00' }}€</span>
+                                    @endif <br>
+                                    <div class="btn-action">
+                                        <a href="{{ route('dish.edit',$dish->id ?? "") }}" class="btn btn-warning btn-sm">
                                             Modifier
                                         </a>
-                                        <form action="{{ route('pizza.delete',$pizza->id ?? "") }}" method="post" class="d-inline">
-                                            @csrf  
-                                            <button type="submit" class="card-link btn btn-outline-danger btn-sm">{{ __('Supprimer') }}</button>
-                                        </form> 
-                                    </span>
+                                        <form action="{{ route('item.delete',["id" => $dish->id ?? "","keep_or_delete" => 1,"item" => 'Dish']) }}" method="post" class="d-inline">@csrf
+                                            <button type="submit" class="card-link btn btn-danger btn-sm">{{ __('Supprimer') }}</button>
+                                        </form>
+                                    </div>
                                 </li>
-                            @endif
-                        @endforeach
+                            @endforeach
+                        @endif
                     </ul>
-                </div>
-            
-                {{-- <ul class="list-group mt-4">
-                    @foreach($pizzas as $pizza)
-                    @if ($pizza->is_deleted === 0)
-                        <li class="list-group-item col-md-9 mt-4">
-                            <h5>{{ $pizza->pizza_name }}</h5>
-                            <span class="d-flex justify-content-end">
-                                <a href="{{ route('pizza.edit',$pizza->id ?? "") }}" class="btn btn-outline-warning btn-sm">Modifier
-                                </a>
-                                <form action="{{ route('pizza.delete',$pizza->id ?? "") }}" method="post" class="d-inline">@csrf  
-                                    <button type="submit" class="card-link btn btn-outline-danger btn-sm">{{ __('Supprimer') }}</button>
-                                </form> 
-                            </span>
-                        </li>
-                    @endif
-                @endforeach
-                </ul> --}}
-            </article>
-            {{-- <article class="dessert-recap col-md-5 col-lg-5  p-2">
-                <ul class="list-group mt-4">
-                    <h2>Liste des desserts au menu</h2>
-                    <li class="list-group-item col-md-12">Tiramisu - <span> <button class="btn btn-primary btn-sm">Modifier</button> <button class="btn btn-danger btn-sm">Supprimer</button></span></li>
-                    <li class="list-group-item col-md-12">pesca - <span> <button class="btn btn-primary btn-sm">Modifier</button> <button class="btn btn-danger btn-sm">Supprimer</button></span></li>
-                </ul>
-            </article> --}}
-        </div>
-        <article class="boissons-recap col-md-12 col-lg-12  p-2 mt-2 m-auto">
-            <ul class="list-group mt-4 m-auto">
-                <h2>Liste des boissons au menu</h2> <br><br><br>
-                @foreach ($drink_types as $type)
-                    <div class="{{'drink '. Str::replace(" ","-",Str::lower($type->type)) }} col-md-5 col-lg-5 m-auto">
+                    @endforeach
+                </article>
+                <hr>
+                <article class="row col-lg-12" id="boisson">
+                    <h3>Les boissons</h3>
+                    @foreach ($drink_types as $type)
                         <h3 class="mt-5">{{ $type->type }}</h3>
-                        @foreach ($drinks as $drink)
-                            @if ($drink->fk_drink_type_id === $type->id)
-                                <li class="list-group-item">
-                                        <p>{{ $drink->drink_name }}</p> <br>
-                                        <p>{{ $drink->drink_price .'€'}}</p>  
-                                    <span class="d-flex justify-content-end">
-                                        <a href="{{ route('drink.edit',$drink->id ?? "") }}" class="btn btn-outline-warning btn-sm">
+                        <ul>
+                            @foreach ($drinks as $drink)
+                                @if ($drink->fk_drink_type_id === $type->id)
+                                <li class="col-lg-3 col-md-6 col-sm-12 mt-4">
+                                    <p class="card-title mb-3">{{ $drink->drink_name }}</p>
+                                    <p class="price">{{ $drink->drink_price .'€'}}</p>
+                                    <span class="d-flex">
+                                        <a href="{{ route('drink.edit',$drink->id ?? "") }}" class="btn btn-warning btn-sm">
                                             {{ __('Modifier') }}
                                         </a>
-                                        <form action="{{ route('pizza.delete',$pizza->id ?? "") }}" method="post" class="d-inline">@csrf  
-                                            <button type="submit" class="card-link btn btn-outline-danger btn-sm">
+                                        <form action="{{ route('item.delete',["id" => $drink->id ?? "","keep_or_delete" => 1,"item" => "Drink"]) }}" method="post" class="d-inline">@csrf
+                                            <button type="submit" class="card-link btn btn-danger btn-sm">
                                                 {{ __('Supprimer') }}
                                             </button>
-                                        </form>      
-                                    </span> 
-                                </li>           
-                            @endif                        
-                        @endforeach 
-                    </div>         
-                @endforeach
-            </ul>
-        </article> 
-        <article class="dessert-recap col-md-5 col-lg-5  p-2 mt-2 m-auto">
-            <ul class="list-group mt-4 m-auto">
-                <h2>Liste des desserts au menu</h2>
-                @foreach ($desserts as $dessert )
-                    <li class="list-group-item">
-                        <p>{{ $dessert->dessert_name }}</p>
-                        <span class="d-flex justify-content-end">
-                            <a href="{{ route('pizza.edit',$pizza->id ?? "") }}" class="btn btn-outline-warning btn-sm">
-                                {{ __('Modifier') }}
-                            </a>
-                            <form action="{{ route('pizza.delete',$pizza->id ?? "") }}" method="post" class="d-inline">@csrf  
-                                <button type="submit" class="card-link btn btn-outline-danger btn-sm">
-                                    {{ __('Supprimer') }}
-                                </button>
-                            </form>      
-                        </span> 
-                    </li>
-                @endforeach       
-            </ul>
-        </article>
+                                        </form>
+                                    </span>
+                                </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    @endforeach
+                </article>
+                <hr>
+                <article class="row col-md-12 col-lg-12" id="dessert">
+                    <h2>Liste des desserts au menu</h2>
+                    <ul class="list-group ">
+                        @foreach ($desserts as $dessert )
+                            <li class="col-lg-4 col-md-6 col-sm-12 mt-4 ">
+                                <p class="card-title">{{ $dessert->dessert_name }}</p>
+                                <p class="price">{{ $dessert->dessert_price .'€'}}</p>
+                                <span class="d-flex">
+                                    <a href="{{ route('dessert.edit',$dessert->id ?? "") }}" class="btn btn-warning btn-sm">
+                                        {{ __('Modifier') }}
+                                    </a>
+                                    <form action="{{ route('item.delete',["id" => $dessert->id ?? "","keep_or_delete" => 1,"item" => "Dessert"]) }}" method="post" class="d-inline">@csrf
+                                        <button type="submit" class="card-link btn btn-danger btn-sm">
+                                            {{ __('Supprimer') }}
+                                        </button>
+                                    </form>
+                                </span>
+                            </li>
+                        @endforeach
+                    </ul>
+                </article>
+            </article>
+            <hr>
+        </x-layout>
     </section>
-</div>
+</main>
 @endsection
-
-
-
-{{-- TODO Demandera bini pour les ingredients si il sont différtens et surtout sur la provola --}}

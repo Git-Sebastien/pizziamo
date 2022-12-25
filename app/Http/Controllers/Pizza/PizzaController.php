@@ -9,43 +9,52 @@ use App\Models\IngredientType;
 use App\Models\PizzaIngredient;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Traits\Utilities;
+use App\Models\Category;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class PizzaController extends Controller
 {
-
+    use Utilities;
     public $pizza;
 
-    public function addPizza()
+    /**
+     * addPizza
+     *
+     * @return void
+     */
+    public function pizzas()
     {
-        $categories = DB::table('categories')
-        ->select()
-        ->get();
-        $all_pizza = DB::table('pizzas')
-        ->select('id')
-        ->get();
-        $ingredient_types = IngredientType::all();
-        $ingredients = Ingredient::all();
+        $all_models = $this->sortModel(
+            [
+                Ingredient::class,
+                IngredientType::class,
+                Category::class
+            ]
+        );
 
-        $pizzas = Pizza::with(['ingredients'])->where('is_deleted','=',0)->get();
-   
-        return view('pizza.add-pizza',compact('categories','ingredient_types','ingredients','pizzas'));
-    }
-       
+        $array = $this->sortArrayOfModel($all_models);
+        $pizzas = $this->sortModelWithRelation(Pizza::class, 'ingredients');
 
-    public function createPizza(Request $request)
-    {
-        $price = $request->input('pizza-price');
-        Pizza::create([
-            'pizza_name' => $request->input('pizza-name'),
-            'pizza_price' =>  (float) $price,
-            'pizza_composition' => $request->input('composition'),
-            'fk_category_id' => (int) $request->input('category-name')
-        ]);
-
-       return redirect('/');
+        return view(
+            'pizza.add-pizza',
+            [
+                'ingredient_types' => $array['ingredientTypes'],
+                'ingredients' => $array['ingredients'],
+                'categories' => $array['categories'],
+            ],
+            compact('pizzas')
+        );
     }
 
-    public function createPizzaWithCheckbox(Request $request)
+    /**
+     * createPizzaWithCheckbox
+     *
+     * @param  mixed $request
+     * @return void
+     */
+    public function createPizzaWithCheckbox(Request $request): RedirectResponse
     {
         $new_pizza = Pizza::create([
             'pizza_name' => $request->input('pizza-name'),
@@ -53,65 +62,95 @@ class PizzaController extends Controller
             'fk_category_id' => (int) $request->input('category-name')
         ]);
 
-        foreach($request->input('ingredients') as $ingredient){
+        foreach ($request->input('ingredients') as $ingredient) {
             PizzaIngredient::create([
                 'pizza_id' =>  $new_pizza->id,
-                'ingredient_id'=> $ingredient
+                'ingredient_id' => $ingredient
             ]);
         }
 
-        return redirect($request->session()->previousUrl());
-
+        return redirect('/dashboard')->with('create', 'La pizza ' . $request->input('pizza-name') . ' a été crée avec succés');
     }
 
-    public function deletePizza($id, Request $request)
+
+    /**
+     * editPizza
+     * 
+     * @param  mixed $request
+     * @param  mixed $id
+     * @return void
+     */
+    public function editPizza(Request $request, int $id): View
     {
         $pizza = Pizza::find($id);
-        $pizza->is_deleted = 1;
-        $pizza->save();
+        $all_models = $this->sortModel(
+            [
+                Category::class,
+                Ingredient::class,
+                IngredientType::class
+            ]
+        );
 
-        return redirect($request->session()->previousUrl());
+        $array = $this->sortArrayOfModel($all_models);
+
+        $pizza_ingredients = $this->sortModelWithRelation(Pizza::class, 'ingredients');
+
+        return view(
+            'pizza.edit-pizza',
+            [
+                'ingredient_types' => $array['ingredientTypes'],
+                'ingredients' => $array['ingredients'],
+                'categories' => $array['categories'],
+            ],
+            compact('pizza', 'pizza_ingredients')
+        );
     }
 
-    public function editPizza(Request $request,$id)
+    /**
+     * deleteIngredient
+     * Delete ingredient
+     * @param  mixed $id
+     * @param  mixed $ingredient
+     * @return void
+     */
+    public function deleteIngredient(int $id, int $ingredient): RedirectResponse
     {
-        $pizza = Pizza::find($id);
-        $pizza_ingredients = Pizza::with(['ingredients'])->get();
-        $categories = DB::table('categories')
-        ->select()
-        ->get();
-        $all_pizza = DB::table('pizzas')
-        ->select('id')
-        ->get();
-        $ingredient_types = IngredientType::all();
-        $ingredients = Ingredient::all();
-
-        $pizzas = Pizza::with(['ingredients'])->get();
-
-        return view('pizza.edit-pizza',compact('pizza','pizza_ingredients','categories','ingredient_types','ingredients'));
-    }
-
-    public function deleteIngredient(Request $request,$id,$ingredient)
-    { 
-            DB::table('pizza_ingredients')
-            ->where('pizza_id','=',$id)
-            ->where('ingredient_id','=',$ingredient)
+        DB::table('pizza_ingredients')
+            ->where('pizza_id', '=', $id)
+            ->where('ingredient_id', '=', $ingredient)
             ->delete();
-       
 
-       return redirect($request->session()->previousUrl());
+        return back()->with('delete', 'L\'ingredient a été supprimé avec succés');
     }
 
-    public function addIngredient(Request $request)
+    /**
+     * pizzaEdit
+     * Edit the pizza
+     * @param  mixed $request
+     * @param  mixed $id
+     * @return void
+     */
+    public function pizzaEdit(Request $request, int $id): RedirectResponse
     {
-        foreach($request->input('ingredients_id') as $ingredient_id)
-        PizzaIngredient::create([
-            'pizza_id' => $request->input('pizza_id'),
-            'ingredient_id' => $ingredient_id
-        ]);
+        $pizza_price = Pizza::find($id);;
+        $request->input('pizza_price');
+        if ($request->input('pizza_price')) {
+            $old_price = $pizza_price->pizza_price;
+            $pizza_price->pizza_price = $request->input('pizza_price');
+            $pizza_price->save();
 
-        return redirect($request->session()->previousUrl());
+            redirect('/dashboard')->with('update', 'Le prix de la pizza ' . $pizza_price->pizza_name . ' a bien été changé de ' . $old_price . '€ à ' . $pizza_price->pizza_price . '€');
+        }
+        if ($request->input('ingredients_id')) {
+            foreach ($request->input('ingredients_id') as $ingredient_id) {
+                PizzaIngredient::create([
+                    'pizza_id' => $request->input('pizza_id'),
+                    'ingredient_id' => $ingredient_id
+                ]);
+            }
+
+            return redirect('/dashboard')->with('update', 'Les nouveaux ingrédients on bien été rajouté sur la pizza ' . $pizza_price->pizza_name . '.');
+        }
+        return redirect('/dashboard');
     }
-
-   
 }

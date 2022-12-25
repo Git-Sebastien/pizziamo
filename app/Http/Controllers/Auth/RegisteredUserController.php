@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
+use App\Mail\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use App\Http\Controllers\Controller;
+use App\Http\Traits\Utilities;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 
 class RegisteredUserController extends Controller
 {
+    use Utilities;
     /**
      * Display the registration view.
      *
@@ -38,18 +42,22 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+        $generate_hash = $this->generateHash();
 
         $user = User::create([
             'identifiant' => $request->identifiant,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'personal_token' => Hash::make('5Arm5AddOvaf6CqFfOHFB5ty6BYsthOs')
+            'personal_token' => Hash::make($generate_hash)
         ]);
+
+
+        Mail::to($request->email)->send(new Contact($generate_hash));
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::HOME)->with('register', 'Vous venez de recevoir un mail a l\'adresse suivante ' . $request->email . ' avec votre clé secréte');
     }
 }

@@ -15,8 +15,75 @@
     font-style: normal;
 }
 
+html {
+    scroll-behavior: cubic-bezier(.46, .11, .66, .79)
+}
+
 
 /* Dashboard */
+
+.burger-dashboard {
+    position: sticky;
+    margin-right: 7px;
+    top: 43px;
+    left: 40rem;
+    visibility: visible;
+    width: 29px;
+    height: 0;
+    cursor: pointer;
+}
+
+.burger-dashboard span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    right: 50%;
+    background-color: white;
+    position: absolute;
+    top: 15%;
+    transform: translateY(-50%);
+    transition: background-color .2s ease-in-out;
+}
+
+.burger-dashboard span::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: red;
+    transition: transform .4s ease-in-out;
+}
+
+.burger-dashboard span::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: green;
+    transition: transform .4s ease-in-out;
+}
+
+.burger-dashboard span::before {
+    transform: translateY(15px);
+    top: -5px;
+}
+
+.burger-dashboard span::after {
+    transform: translateY(-15px);
+    top: 5px;
+}
+
+.burger-dashboard.active span {
+    background-color: transparent;
+}
+
+.burger-dashboard.active span::before {
+    transform: translate(0px, 5px) rotate(45deg);
+}
+
+.burger-dashboard.active span::after {
+    transform: translate(0px, -5px) rotate(133deg);
+}
 
 .list-group-item {
     box-sizing: initial;
@@ -90,22 +157,23 @@
     font-weight: bold;
 }
 
-.main-nav {
-    position: absolute;
-    transform: translateX(-100vw);
-    transition: transform .5s;
-    z-index: 1;
-    width: 100vw;
-    height: 60%;
-}
-
-.main-nav.show {
-    transform: translateX(0);
-    transition: transform .5s;
+.list-group-item {
+    border: none;
 }
 
 .recap {
     background-color: aqua;
+}
+
+.form-dashboard {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.form-login {
+    width: min-content;
+    margin: auto;
 }
 
 .row {
@@ -116,7 +184,6 @@
     column-gap: 6rem;
     height: 100%;
     background-color: seashell;
-    ;
 }
 
 .recap-all {
@@ -129,7 +196,33 @@ h2 {
 }
 
 .main-nav li {
-    text-align: center;
+    list-style: none;
+}
+
+.main-nav ul {
+    border-bottom: 1px solid;
+    padding: 5px;
+}
+
+.dashboard-body .wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(396px, auto));
+    gap: 0.5rem;
+}
+
+.dashboard-body .vegetable {
+    width: 100%;
+    height: 100%;
+}
+
+.dashboard-body .vegetable ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 1rem;
+}
+
+.main-nav>ul:nth-child(4) {
+    border-top: 1px solid;
 }
 
 .list-group-item {
@@ -142,14 +235,10 @@ h2 {
 }
 
 input[type=checkbox] {
-    transform: scale(1.9);
+    transform: scale(1.3);
     margin-right: 10px;
     margin-top: 10px;
     font-size: 19px;
-}
-
-.wrapper {
-    padding: 5rem;
 }
 
 .ingredient-list {
@@ -160,6 +249,12 @@ input[type=checkbox] {
 
 .pizza-recap ul {
     display: flex;
+    flex-wrap: wrap;
+    column-gap: 97px;
+}
+
+.pizza-recap ul li {
+    border: 1px solid black;
 }
 
 .recap-all {
@@ -173,26 +268,181 @@ input[type=checkbox] {
     background-color: seashell;
 }
 
-.dashboard-body {
-    background-color: seashell;
-}
-
 article {
     flex: auto;
 }
 
-@media screen and (min-width:768px) {
-    .main-nav {
-        transform: translate(0);
-        transition: none;
-        position: fixed;
-        width: 18vw;
+.nav-dashboard {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    column-gap: 10rem;
+}
+
+.header-dashboard {
+    position: fixed;
+    z-index: 8;
+    height: 100px;
+    background-color: #fff;
+    border-bottom: 1px solid;
+    box-shadow: inset 0px -14px 16px 17px rgb(0 0 0 / 5%);
+}
+
+.nav-dashboard li {
+    list-style: none;
+}
+
+.nav-dashboard li a {
+    color: black;
+    text-decoration: underline;
+}
+
+.recap-all {
+    width: 67vw;
+}
+
+.drink {
+    flex-basis: max-content;
+}
+
+.dashboard-body h2 {
+    color: black;
+}
+
+.dashboard-body {
+    font-family: 'Kite One', sans-serif;
+}
+
+.dashboard-body h1 {
+    position: static;
+    color: #e03325;
+    border-bottom: 1px solid;
+    width: 47%;
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.dashboard-body aside {
+    width: 252px;
+    transform: translateX(-267px);
+    transition: transform .5s;
+    position: absolute;
+    background-color: #fff;
+    border-right: 1px solid;
+    box-shadow: inset 0px -14px 16px 17px rgb(0 0 0 / 5%);
+    padding: 2rem;
+    height: 100vh;
+    line-height: 30px;
+}
+
+.dashboard-body #aside>h3 {
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.dashboard-body aside.show {
+    transform: translateX(0px);
+    transition: transform .5s;
+    position: fixed;
+    z-index: 16;
+    height: 100%;
+}
+
+.dashboard-body.background-black {
+    background-color: #333;
+}
+
+.dashboard-body.background-black>.main {
+    background-color: inherit;
+}
+
+.main-nav {
+    position: sticky;
+    top: 0;
+}
+
+.main-nav h3 {
+    color: #545cd8;
+    text-align: start;
+}
+
+.dashboard-body main {
+    background: #f1f4f6;
+}
+
+.main-nav ul li a {
+    color: #6c757d;
+}
+
+.dashboard-body .pizzas ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.dashboard-body .pizzas ul li:not(.list-checkbox) {
+    list-style: none;
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.dashboard-body ul #plats-maisons {
+    position: static;
+}
+
+
+/* .dashboard-body .pizza-list {
+    width: 100%;
+} */
+
+.main-content {
+    column-gap: 1rem;
+}
+
+.modal-validation {
+    position: relative;
+}
+
+.modal-validation div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border: 1px solid;
+    padding: 1rem;
+    transform: translate(-44%, 16%);
+    display: none;
+}
+
+.list-checkbox {
+    border-bottom: 1px solid;
+    margin-top: 10px;
+}
+
+.dashboard-body .title-category {
+    margin-top: 7rem;
+}
+
+@media screen and (max-width:800px) {
+    .dashboard-body .pizza-list {
+        width: 100%;
     }
-    .recap-all {
-        width: 67vw;
+}
+
+@media screen and (min-width:791px) {
+    .dashboard-body aside {
+        width: auto;
+        position: sticky;
+        top: 0;
+        transform: translateX(0px);
     }
-    .drink {
-        flex-basis: max-content;
+    .burger-dashboard {
+        display: none;
+    }
+    .header-dashboard {
+        display: none;
     }
 }
 
@@ -301,7 +551,7 @@ h1 {
 }
 
 .menu-carte .menu-carte-nav.show {
-    height: 92px;
+    height: 143px;
     transition: height .3s ease-in;
     border-radius: 9px;
     padding: 0;
@@ -317,12 +567,14 @@ h1 {
     margin-top: 4rem;
     line-height: 3rem;
     flex-direction: column;
+    column-gap: 3rem;
 }
 
 .main-header nav ul li {
     list-style: none;
-    font-size: 25px;
+    font-size: 23px;
     font-family: 'Marck Script', cursive;
+    font-weight: bold;
 }
 
 .carousel {
@@ -432,10 +684,6 @@ h1 {
 }
 
 .menu {
-    /* background: url('../../public/images/vegetable.jpg');
-    background-position-y: 150px;
-    background-size: cover;
-    background-attachment: fixed; */
     color: black;
 }
 
@@ -483,7 +731,8 @@ h1 {
 .pizza-blanches ul,
 .pizza-calzones ul,
 .desserts ul,
-.boissons ul {
+.boissons ul,
+.pizza-plats ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -495,7 +744,8 @@ h1 {
 .pizza-blanches ul li,
 .pizza-calzones ul li,
 .desserts ul li,
-.boissons ul li {
+.boissons ul li,
+.pizza-plats ul li {
     position: relative;
     list-style: none;
     padding: 10px;
@@ -509,7 +759,8 @@ h1 {
 .pizza-tomates ul li,
 .pizza-blanches ul li,
 .pizza-calzones ul li,
-.desserts ul li {
+.desserts ul li,
+.pizza-plats ul li {
     max-height: 63px;
     overflow: hidden;
     height: auto;
@@ -519,7 +770,8 @@ h1 {
 article.pizza-tomates>ul>li.show,
 article.pizza-blanches>ul>li.show,
 article.pizza-calzones>ul>li.show,
-article.desserts>ul>li.show {
+article.desserts>ul>li.show,
+article.pizza-plats>ul>li.show {
     max-height: 400px;
     height: auto;
     transition: max-height .5s ease-in;
@@ -603,9 +855,9 @@ span#boissons,
 
 .presentation {
     background: url(/public/images/background-presentation.webp);
-    background-position-y: 1353px;
+    background-position-y: 1421px;
     position: relative;
-    background-size: 1371px;
+    background-size: 1494px;
 }
 
 .presentation article {
@@ -672,6 +924,15 @@ span#boissons,
     font-family: 'Kite One', sans-serif;
 }
 
+.fade-update {
+    animation: fade-in forwards 5.5s;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 500;
+}
+
 
 /* Effect with intersection observer */
 
@@ -728,6 +989,21 @@ span#boissons,
     font-weight: 700;
 }
 
+.schedule ul li:nth-child(10) {
+    font-size: x-large
+}
+
+.schedule ul li:nth-child(11),
+.schedule ul li:nth-child(11) a {
+    font-size: x-large;
+    color: black;
+    text-decoration: underline;
+}
+
+address {
+    font-size: x-large;
+}
+
 footer {
     background: url(/public/images/flavor.webp);
     padding: 2rem;
@@ -752,7 +1028,7 @@ footer {
     max-width: 100%;
     position: absolute;
     width: 431px;
-    bottom: 57rem;
+    bottom: 67rem;
     right: 65%;
     display: none;
 }
@@ -804,6 +1080,10 @@ footer {
     font-weight: bold;
     font-size: large;
     margin-top: 8px;
+}
+
+.pizza-plats ul li .price {
+    margin-top: 7px
 }
 
 .boissons h4 {
@@ -894,6 +1174,38 @@ li>p>i {
     }
 }
 
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateX(-70px);
+    }
+    25% {
+        opacity: .5;
+    }
+    30%,
+    40%,
+    50%,
+    51%,
+    55%,
+    56%,
+    60%,
+    61%,
+    65%,
+    66%,
+    67%,
+    70% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    75% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(70px);
+    }
+}
+
 @media screen and (min-width:373px) {
     .pizza-calzones ul li:nth-child(1) .price {
         float: right;
@@ -902,16 +1214,12 @@ li>p>i {
     .pizza-calzones ul li:nth-child(1) {
         max-height: 63px;
     }
-    .presentation {
-        background-position-y: 1183px;
-        background-size: 1213px;
-    }
 }
 
 @media screen and (min-width:425px) {
     .presentation {
-        background-position-y: 1098px;
-        background-size: 1128px;
+        background-position-y: 1142px;
+        background-size: 1186px;
     }
 }
 
@@ -965,7 +1273,8 @@ li>p>i {
     .pizza-blanches ul,
     .pizza-calzones ul,
     .boissons ul,
-    .desserts ul {
+    .desserts ul,
+    .pizza-plats ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -976,7 +1285,8 @@ li>p>i {
     .pizza-tomates ul li,
     .pizza-blanches ul li,
     .pizza-calzones ul li,
-    .desserts ul li {
+    .desserts ul li,
+    .pizza-plats ul li {
         width: 47%;
         max-height: none;
         cursor: default
@@ -1024,10 +1334,15 @@ li>p>i {
     .pizza-category .pizza-category-nav {
         background: url(/public/images/flavor.webp);
         width: 213px;
+        position: absolute;
     }
     .menu-carte .menu-carte-nav {
         background: url(/public/images/flavor.webp);
         width: 213px;
+        position: absolute;
+    }
+    .menu-carte .menu-carte-nav.show {
+        height: 176px;
     }
     .top-nav {
         bottom: 0;
@@ -1068,7 +1383,8 @@ li>p>i {
     .pizza-tomates ul li,
     .pizza-blanches ul li,
     .pizza-calzones ul li,
-    .desserts ul li {
+    .desserts ul li,
+    .pizza-plats ul li {
         height: auto;
     }
     .pizza-vintage {
