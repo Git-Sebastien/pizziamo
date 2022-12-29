@@ -24,7 +24,7 @@
                                     <span class="price">{{ $pizza->pizza_price.',00' }}€</span>
                                     <p class="ingredient-details">
                                         @foreach ($pizza->ingredients as $ingredient)
-                                            {{ $ingredient->ingredient_name}}<br>
+                                            {{ $ingredient->ingredient_name}}
                                         @endforeach
                                         <div class="btn-action">
                                             <a href="{{ route('pizza.edit',$pizza->id ?? "") }}" class="btn btn-warning btn-sm">
@@ -47,7 +47,7 @@
                                         <span class="price">{{ $dish->dish_price.'0' }}€</span>
                                     @else
                                         <span class="price">{{ $dish->dish_price.',00' }}€</span>
-                                    @endif <br>
+                                    @endif 
                                     <div class="btn-action">
                                         <a href="{{ route('dish.edit',$dish->id ?? "") }}" class="btn btn-warning btn-sm">
                                             Modifier

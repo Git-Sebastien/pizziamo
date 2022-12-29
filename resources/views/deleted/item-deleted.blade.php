@@ -14,7 +14,7 @@
                             <p class="card-title pizza-title">{{ $pizza->pizza_name }}</p> <span class="price">{{ $pizza->pizza_price.',00' }}€</span>
                             <p class="ingredient-details">
                                 @foreach ($pizza->ingredients as $ingredient)
-                                {{ $ingredient->ingredient_name}}<br>
+                                {{ $ingredient->ingredient_name}}
                                 @endforeach
                                 <div class="btn-action">
                                     <a href="{{ route('item.delete', ["id" => $pizza->id ?? "","keep_or_delete" => 0,"item" => 'Pizza']) }}" class="btn btn-warning btn-sm">

@@ -357,6 +357,13 @@ class DashboardController extends Controller
         );
     }
 
+    /**
+     * deletePermanently
+     *
+     * @param  mixed $id
+     * @param  mixed $table
+     * @return RedirectResponse
+     */
     public function deletePermanently(int $id, string $table): RedirectResponse
     {
         $table_to_singular = Str::singular($table);

@@ -19,6 +19,6 @@ return [
     'settings_cancel' => 'Annuler',
     'settings_close' => 'Fermer',
     'settings_save' => 'Sauvegarder mon choix',
-    'settings_title' => 'Cookie settings',
+    'settings_title' => 'Gestion des cookies',
     'settings_text' => 'Notre site web stocke quatre types de cookies. À tout moment, vous pouvez choisir celles que vous acceptez et celles que vous refusez. Vous pouvez en savoir plus sur ce que sont les cookies et sur les types de cookies que nous stockons dans notre <a href=":policyUrl" target="_blank">politique en matière de cookies</a>.'
 ];

@@ -3,6 +3,7 @@
 @tailwind utilities; */
 
 @import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import'../../public/vendor/cookie-consent/css/cookie-consent.css';
 @font-face {
     font-family: "Kite One";
     src: url(/public/fonts/KiteOne-Regular.ttf) format("ttf"),
@@ -448,6 +449,13 @@ article {
 
 
 /* Website */
+
+.mentions {
+    font-size: 18px;
+    margin-top: 10em;
+    margin-left: 1em;
+    margin-bottom: 4em;
+}
 
 .website {
     font-size: 20px;

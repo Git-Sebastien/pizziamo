@@ -21,6 +21,10 @@ Route::middleware('cookie-consent')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
 });
 
+Route::get('/mention-legales', function () {
+    return view('home.mentions');
+})->name('mentions');
+
 
 Route::middleware('token.validator')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard.index');

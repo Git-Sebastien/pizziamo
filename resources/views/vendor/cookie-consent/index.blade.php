@@ -32,6 +32,9 @@
         </button>
     </div>
 </div>
+<button type="button" class="lcc-button lcc-button--link js-lcc-settings-toggle cookie-settings">
+    <p>Gérer les cookies</p>
+</button>
 
 <div role="dialog" aria-labelledby="lcc-modal-settings-label" aria-describedby="lcc-modal-settings-desc" aria-modal="true" class="lcc-modal lcc-modal--settings js-lcc-modal js-lcc-modal-settings" style="display: none;">
     <button class="lcc-modal__close js-lcc-settings-toggle" type="button">
@@ -48,7 +51,6 @@
             <p id="lcc-modal-settings-desc" class="lcc-text">
                 {{-- {!! trans('cookie-consent::texts.settings_text', [ 'policyUrl' => config("cookie-consent.policy_url_$locale")]) !!} --}}
                 Notre site web stocke quatre types de cookies. À tout moment, vous pouvez choisir celles que vous acceptez et celles que vous refusez. Les cookies pour le bon fonctionnement du site vous permettent de pouvoir naviguer de façon optimale et de vous procurez une meilleur expérience.
-
             </p>
             <div class="lcc-modal__section lcc-u-text-center">
                 <button type="button" class="lcc-button js-lcc-accept">
