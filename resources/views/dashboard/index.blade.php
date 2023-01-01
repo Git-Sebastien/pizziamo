@@ -42,7 +42,7 @@
                             <span id="plats-maisons"></span>
                             @foreach ($dishs as $dish)
                                 <li class="p-2 mt-3">
-                                        <p id="pizza-title" class="card-title">{{ $dish->dish_name }} <i></i></p>
+                                        <p class="card-title pizza-title">{{ $dish->dish_name }} <i></i></p>
                                     @if (Str::length($dish->dish_price) > 2)
                                         <span class="price">{{ $dish->dish_price.'0' }}€</span>
                                     @else
