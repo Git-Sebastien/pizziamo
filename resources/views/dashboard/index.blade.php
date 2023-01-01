@@ -5,7 +5,7 @@
 @section('dashboard')
 
 <x-modal></x-modal>
-
+{{-- Render all item of the menu --}}
 <main>
     <section class="row main-content">
         <x-layout>

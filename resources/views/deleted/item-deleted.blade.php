@@ -3,6 +3,7 @@
 @section('title','Element du menu supprimé')
 
 @section('deleted-item')
+{{-- Render all item deleted --}}
 <section class="row main-content">
     <x-layout>
         <article class="col-sm-8 pizzas">

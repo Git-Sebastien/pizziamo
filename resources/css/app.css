@@ -669,7 +669,6 @@ a {
 .main-header.show {
     transform: translateY(-1px);
     transition: transform .5s, height .6s;
-    transition-delay: 110ms;
 }
 
 .main-header.show ul li {
