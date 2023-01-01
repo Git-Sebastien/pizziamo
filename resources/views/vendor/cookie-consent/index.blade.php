@@ -1,17 +1,8 @@
 @php
-    $locale = $app->getLocale();
+$locale = $app->getLocale();
 @endphp
 
-<div role="dialog" aria-labelledby="lcc-modal-alert-label" aria-describedby="lcc-modal-alert-desc" aria-modal="true" class="lcc-modal lcc-modal--alert js-lcc-modal js-lcc-modal-alert" style="display: none;"
-     data-cookie-key="{{ config('cookie-consent.cookie_key') }}"
-     data-cookie-value-analytics="{{ config('cookie-consent.cookie_value_analytics') }}"
-     data-cookie-value-marketing="{{ config('cookie-consent.cookie_value_marketing') }}"
-     data-cookie-value-both="{{ config('cookie-consent.cookie_value_both') }}"
-     data-cookie-value-none="{{ config('cookie-consent.cookie_value_none') }}"
-     data-cookie-expiration-days="{{ config('cookie-consent.cookie_expiration_days') }}"
-     data-gtm-event="{{ config('cookie-consent.gtm_event') }}"
-     data-ignored-paths="{{ implode(',', config('cookie-consent.ignored_paths', [])) }}"
->
+<div role="dialog" aria-labelledby="lcc-modal-alert-label" aria-describedby="lcc-modal-alert-desc" aria-modal="true" class="lcc-modal lcc-modal--alert js-lcc-modal js-lcc-modal-alert" style="display: none;" data-cookie-key="{{ config('cookie-consent.cookie_key') }}" data-cookie-value-analytics="{{ config('cookie-consent.cookie_value_analytics') }}" data-cookie-value-marketing="{{ config('cookie-consent.cookie_value_marketing') }}" data-cookie-value-both="{{ config('cookie-consent.cookie_value_both') }}" data-cookie-value-none="{{ config('cookie-consent.cookie_value_none') }}" data-cookie-expiration-days="{{ config('cookie-consent.cookie_expiration_days') }}" data-gtm-event="{{ config('cookie-consent.gtm_event') }}" data-ignored-paths="{{ implode(',', config('cookie-consent.ignored_paths', [])) }}">
     <div class="lcc-modal__content">
         <h2 id="lcc-modal-alert-label" class="lcc-modal__title">
             @lang('cookie-consent::texts.alert_title')
@@ -33,7 +24,7 @@
     </div>
 </div>
 <button type="button" class="lcc-button lcc-button--link js-lcc-settings-toggle cookie-settings">
-    <p>Gérer les cookies</p>
+    <p><i class="fa-solid fa-gear fa-xl"></i>Gérer les cookies</p>
 </button>
 
 <div role="dialog" aria-labelledby="lcc-modal-settings-label" aria-describedby="lcc-modal-settings-desc" aria-modal="true" class="lcc-modal lcc-modal--settings js-lcc-modal js-lcc-modal-settings" style="display: none;">

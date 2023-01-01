@@ -1,6 +1,8 @@
 import './bootstrap';
 
-import '../../node_modules/bootstrap/dist/js/bootstrap'
+import '../../node_modules/bootstrap/dist/js/bootstrap';
+
+
 
 import Alpine from 'alpinejs';
 
@@ -29,15 +31,19 @@ const categoryPizzaNav = document.querySelector("#top-nav > ul > li.pizza-catego
 let arrayOfPizza = [categoryPizza, menuCarte];
 let arrayOfMenu = [categoryPizzaNav, menuCarteNav]
 
-btnDelete.forEach(element => {
-    console.log(element.value)
-    element.addEventListener('click', () => {
-        modalValidation.style.display = "block"
-        modalValidation.innerHTML = `Voulez-vous vraiment supprimer la ${element.value}`
-    })
-})
+
+//Modal for delete confirm
+// btnDelete.forEach(element => {
+//     console.log(element.value)
+//     element.addEventListener('click', () => {
+//         modalValidation.style.display = "block"
+//         modalValidation.innerHTML = `Voulez-vous vraiment supprimer la ${element.value}`
+//     })
+// })
 
 // 
+
+//Expends the header menu
 arrayOfPizza.forEach((elementMenu, indexMenu) => {
     arrayOfMenu.forEach((elementSubMenu, indexSubMenu) => {
         if (elementMenu && elementSubMenu) {
@@ -68,7 +74,7 @@ arrayOfPizza.forEach((elementMenu, indexMenu) => {
 })
 
 
-
+//Expends the list menu on mobile
 if (window.innerWidth <= 768) {
     pizza_li.forEach((elementLi, indexLi) => {
         elementLi.addEventListener('click', () => {
@@ -85,6 +91,7 @@ if (window.innerWidth <= 768) {
     })
 }
 
+//Website burger
 if (burger) {
     burger.addEventListener('click', function() {
         burger.classList.toggle('active');
@@ -104,6 +111,7 @@ if (burger) {
     });
 }
 
+//Dashboard burger
 if (burgerDashboard) {
     burgerDashboard.addEventListener('click', () => {
         burgerDashboard.classList.toggle('active')
@@ -113,6 +121,7 @@ if (burgerDashboard) {
     })
 }
 
+//Aside from dashboard
 asideLink.forEach(element => {
     element.addEventListener('click', () => {
         burgerDashboard.classList.remove('active')
@@ -123,7 +132,7 @@ asideLink.forEach(element => {
 })
 
 
-
+//Intersection Observer
 const ratio = .7;
 
 const fade = document.querySelectorAll('.fade');

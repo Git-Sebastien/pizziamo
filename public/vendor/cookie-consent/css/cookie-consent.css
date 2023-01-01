@@ -50,12 +50,24 @@
     bottom: 0;
     right: 20px;
     z-index: 999;
+    transform: translate(185px);
+    transition: transform .5s ease-in-out;
 }
 
 .cookie-settings p {
     background-color: #f0f8ffd1;
-    color: green;
     font-size: 20px;
+    padding: 10px;
+    text-decoration: underline;
+}
+
+.fa-gear {
+    margin-right: 10px;
+}
+
+.cookie-settings:hover {
+    transform: translateX(0px);
+    transition: transform .5s ease-in-out;
 }
 
 .lcc-button:focus,

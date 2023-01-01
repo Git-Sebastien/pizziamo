@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Pizziamo da Gabriele - Pizzas italiennes a base de produit frais!')
+@section('title','Pizziamo da Gabriele - Pizzeria italiennes a La Ravoire!')
 @section('home')
 @if (session()->has('register'))
     <div class="alert alert-warning fade-update">

@@ -11,9 +11,8 @@
                 <span class="price">{{ $pizza->pizza_price.',00' }}€</span>
                 <p class="ingredient-details">
                     @foreach ($pizza->ingredients as $ingredient)
-                    {{ $ingredient->ingredient_name}}
+                     {{ $ingredient->ingredient_name.',' }}
                     @endforeach
-                    .
                 </p>
             </li>
             @endif
@@ -38,7 +37,7 @@
     <article class="desserts">
         <ul>
             @foreach ($desserts as $dessert)
-            <li class="fade from-top" id="pizza-list">
+            <li class="fade from-top pizza-list">
                 <p class="card-title pizza-title">{{ $dessert->dessert_name }} <i></i></p>
                 @if (Str::length($dessert->dessert_price) > 2)
                 <span class="price">{{ $dessert->dessert_price.'0' }}€</span>

@@ -12,7 +12,7 @@
     <!-- Fonts -->
     @stack('head')
     <!-- CSS only -->
-    <link rel="stylesheet" type="text/css" href="{{ asset("vendor/cookie-consent/css/cookie-consent.css")}}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset("vendor/cookie-consent/css/cookie-consent.css")}}"> --}}
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}" />
     <!-- JavaScript Bundle with Popper -->
     <script src="{{ asset('js/app.js') }}"></script>

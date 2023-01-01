@@ -3,7 +3,7 @@
     <nav class="top-nav" id="top-nav">
         <ul>
             <li>
-                <h1 class="d-md-none d-xl-block">Pizziamo da Gabriele</h1>
+                <span class="d-md-none d-xl-block main-title">Pizziamo da Gabriele</span>
             </li>
             <li><a href="#">Accueil</a></li>
             <li class="pizza-category">Nos pizzas<i></i>

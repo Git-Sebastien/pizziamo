@@ -16,20 +16,22 @@
         <img src="{{ asset('images/logo-pizziamo.webp') }}" width="" height="" alt="Logo de pizziamo da Gabriele" class="logo-pizziamo">
         <ul>
             <li>
-                <h4>Ouvert tous les jours sauf le lundi</h4>
+                <h4>Ouvert tous les jours sauf le dimanche et lundi</h4>
             </li>
+    
             <li>Mardi 10h00 à 14h30 - 18h30 à 22h30</li>
             <li>Mercredi de 10h00 a 14h30 - 18h30 à 22h30</li>
             <li>Jeudi de 10h00 a 14h30 - 18h30 à 22h30</li>
             <li>Vendredi de 10h00 a 14h30 - 18h30 à 22h30</li>
             <li>Samedi de 10h00 a 14h30 - 18h30 à 22h30</li>
-            <li>Dimanche de 10h00 a 14h30 - 18h30 à 22h30</li>
+            <hr>
             <li>
-                <address>350 avenue louis armand - 73490 La Ravoire
+                <address>
+                    <p>350 avenue louis armand - 73490 La Ravoire</p>
                     <li>07.69.74.77.96</li>
                 </address>
                 <li>
-                    <a href="mailto:pizziamo@outlook.fr" title="Contactez nous !">Pizziamo@outlook.fr</a>
+                    <a href="mailto:pizziamo@outlook.fr" title="Contactez nous !" class="text-black">Pizziamo@outlook.fr</a>
                 </li>
             </li>
         </ul>
@@ -37,7 +39,7 @@
     <img src="{{ asset('images/pizza-dessins.webp') }}" width="" height="" alt="pizza dessinées" class="pizza-draw">
     <img src="{{ asset('images/pizzeria-vintage.webp') }}" width="" height="" alt="" class="pizza-vintage">
     <div class="footer">
-        <span>&copy; Copyright 2022 Pizziamo da Gabriele - <a href="{{ route('mentions') }}" class="text-white text-decoration-underline">Mentions légales</a></span>
+        <span class="copyright">&copy;2022 Pizziamo da Gabriele - <a href="{{ route('mentions') }}" class="text-white text-decoration-underline">Mentions légales</a></span>
         <span class="creator">Designed by  <a href="https://ancelin-sebastien-folio.fr/">Ancelin Sébastien</a></span>
     </div>
 </footer>
