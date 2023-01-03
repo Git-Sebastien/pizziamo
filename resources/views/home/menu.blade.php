@@ -1,8 +1,13 @@
 <span class="mt-2 fade" id="pizza">Nos pizzas</span>
 <section class="menu">
     @foreach ($categories as $category)
-    <h4 class="text-center title-category fade" id="pizza-{{Str::substr($category->category_name,4,8) }}">{{ $category->category_name }}</h4>
-    <article class="pizza-{{Str::substr($category->category_name,4,8) }}">
+    @if ($category->id === 4)
+        <h4 class="text-center title-category fade" id="pizza-{{Str::substr($category->category_name,4,5) }}">{{ $category->category_name }}</h4>
+        <article class="pizza-{{Str::substr($category->category_name,4,5) }}">
+    @else
+        <h4 class="text-center title-category fade" id="pizza-{{Str::substr($category->category_name,4,8) }}">{{ $category->category_name }}</h4>
+        <article class="pizza-{{Str::substr($category->category_name,4,8) }}">
+    @endif
         <ul>
             @foreach ($pizzas as $pizza)
             @if ($pizza->fk_category_id === $category->id)
@@ -18,7 +23,7 @@
             @endif
             @endforeach
             @if ($category->id === 4)
-            <span id="plats-maisons"></span>
+            <li class="d-none"><span id="plats-maisons"></span></li>
             @foreach ($dishs as $dish)
             <li class="fade from-top pizza-list">
                 <p class="card-title pizza-title">{{ $dish->dish_name }} <i></i></p>

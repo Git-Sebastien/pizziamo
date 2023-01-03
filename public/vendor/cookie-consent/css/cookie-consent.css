@@ -54,7 +54,7 @@
     transition: transform .5s ease-in-out;
 }
 
-.cookie-settings p {
+.cookie-settings span {
     background-color: #f0f8ffd1;
     font-size: 20px;
     padding: 10px;

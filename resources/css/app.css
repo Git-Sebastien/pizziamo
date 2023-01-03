@@ -17,6 +17,12 @@
     font-style: normal;
 }
 
+:root {
+    --redColor: #bb2216;
+    --MarckScript: 'Marck Script', cursive, sans-serif;
+    --kiteOne: 'Kite One', sans-serif;
+}
+
 html {
     scroll-behavior: cubic-bezier(.46, .11, .66, .79)
 }
@@ -52,7 +58,7 @@ html {
     position: absolute;
     width: 100%;
     height: 3px;
-    background-color: red;
+    background-color: var(--redColor);
     transition: transform .4s ease-in-out;
 }
 
@@ -119,7 +125,7 @@ html {
     position: absolute;
     width: 100%;
     height: 3px;
-    background-color: red;
+    background-color: var(--redColor);
     transition: transform .4s ease-in-out;
 }
 
@@ -312,12 +318,12 @@ article {
 }
 
 .dashboard-body {
-    font-family: 'Kite One', sans-serif;
+    font-family: var(--kiteOne);
 }
 
 .dashboard-body h1 {
     position: static;
-    color: #e03325;
+    color: var(--redColor);
     border-bottom: 1px solid;
     width: 47%;
     margin-top: 8rem;
@@ -569,7 +575,7 @@ a {
 
 .pizza-category-nav li,
 .menu-carte-nav li a {
-    color: #e03325;
+    color: var(--redColor)
 }
 
 .main-header nav ul {
@@ -583,7 +589,7 @@ a {
 .main-header nav ul li {
     list-style: none;
     font-size: 23px;
-    font-family: 'Marck Script', cursive;
+    font-family: var(--MarckScript);
     font-weight: bold;
 }
 
@@ -595,7 +601,7 @@ a {
 .main-title {
     position: relative;
     display: block;
-    color: #e03325;
+    color: var(--redColor);
     border-bottom: 1px solid;
     width: 47%;
     margin: auto;
@@ -605,13 +611,13 @@ a {
 .carousel-caption h2 {
     font-size: 48px;
     color: black;
-    font-family: 'Marck Script', cursive;
+    font-family: var(--MarckScript);
 }
 
 .carousel-caption p {
     font-size: 27px;
     color: black;
-    font-family: 'Kite One', sans-serif;
+    font-family: var(--kiteOne);
 }
 
 .carousel-caption {
@@ -716,7 +722,6 @@ a {
 
 .pizza-tomates {
     background: url(/public/images/background-blanches.webp);
-    background-color: rgba(red, green, blue, .5);
     background-size: cover;
     background-position-x: 32px;
     background-attachment: fixed;
@@ -724,7 +729,6 @@ a {
 
 .pizza-calzones {
     background: url(/public/images/background-calzone.webp);
-    background-color: rgba(red, green, blue, .5);
     background-size: cover;
     background-position-x: 32px;
     background-attachment: fixed;
@@ -732,7 +736,6 @@ a {
 
 .boissons {
     background: url(/public/images/background-boissons.webp);
-    background-color: rgba(red, green, blue, .5);
     background-size: cover;
     background-position-x: 32px;
     background-attachment: fixed;
@@ -804,31 +807,16 @@ article.pizza-plats>ul>li.show {
 }
 
 .contact {
-    color: #e03325;
+    color: var(--redColor);
     border-bottom: 1px solid #34A248;
     cursor: pointer
 }
-
-
-/* span:not(.title) {
-    font-family: 'Marck Script', cursive;
-    text-align: center;
-    font-size: 25px;
-    margin-bottom: 5rem;
-    margin-top: 4rem;
-    text-decoration: underline;
-    padding: 1rem;
-    background: url(/public/images/italian_flag_background_title.jpg);
-    background-size: 283px;
-    background-position-x: center;
-    background-repeat: no-repeat;
-} */
 
 span#boissons,
 #desserts,
 #pizza,
 #find {
-    font-family: 'Marck Script', cursive;
+    font-family: var(--MarckScript);
     text-align: center;
     font-size: 28px;
     margin-bottom: 5rem;
@@ -843,16 +831,6 @@ span#boissons,
     display: block;
 }
 
-
-/* .menu li>p {
-    font-size: 19px;
-    color: green;
-    font-weight: 900;
-    width: 60%;
-    display: contents;
-    cursor: pointer;
-} */
-
 .card-title {
     font-size: 19px;
     color: green;
@@ -864,7 +842,7 @@ span#boissons,
 
 .title-category {
     font-size: 31px;
-    color: firebrick;
+    color: var(--redColor);
     border-bottom: 2px solid;
     width: 85%;
     margin: auto;
@@ -883,7 +861,7 @@ span#boissons,
     text-align: center;
     color: white;
     font-size: 38px;
-    font-family: 'Marck Script', cursive;
+    font-family: var(--MarckScript);
     background: #bb2216;
     border: 8px solid green;
     border-radius: 20px;
@@ -904,7 +882,7 @@ span#boissons,
     padding: 1rem;
     text-align: center;
     font-size: 17px;
-    font-family: 'Kite One', sans-serif;
+    font-family: var(--kiteOne);
     color: white;
     background: rgba(0, 0, 0, .9);
 }
@@ -913,7 +891,7 @@ span#boissons,
     text-align: center;
     color: white;
     font-size: 38px;
-    font-family: 'Marck Script', cursive;
+    font-family: var(--MarckScript);
     background: #bb2216;
     border: 8px solid green;
     border-radius: 20px;
@@ -957,7 +935,7 @@ span#boissons,
     font-weight: 600;
     font-size: 18px;
     padding: 10px;
-    font-family: 'Kite One', sans-serif;
+    font-family: var(--kiteOne);
 }
 
 .fade-update {
@@ -1020,9 +998,8 @@ span#boissons,
 .schedule li {
     text-align: center;
     list-style: none;
-    font-size: 17px;
-    color: black;
-    font-weight: 700;
+    font-size: 18px;
+    color: white;
 }
 
 .schedule ul li:nth-child(10) {
@@ -1037,15 +1014,22 @@ span#boissons,
 }
 
 address {
-    font-size: 23px;
+    font-size: 18px;
 }
 
 footer {
     background: url(/public/images/flavor.webp);
-    padding: 2rem;
+    padding: 1rem;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+}
+
+.text-footer {
+    margin: auto;
+    border-bottom: 1px solid #fff4;
+    margin-bottom: 1em;
+    padding: 1em;
 }
 
 .pizza-draw {
@@ -1084,7 +1068,7 @@ footer {
     border-radius: 27px;
     padding: 1rem;
     color: white;
-    background: #e03325;
+    background: var(--redColor);
     display: flex;
     justify-content: space-around;
 }
@@ -1124,7 +1108,7 @@ footer {
 
 .boissons h4 {
     font-size: 21px;
-    font-family: 'Kite One', sans-serif;
+    font-family: var(--kiteOne);
 }
 
 .creator {
@@ -1344,7 +1328,6 @@ li>p>i {
     }
     .ingredient-details {
         font-size: 18px;
-        /* letter-spacing: 5px; */
     }
     .contact-tel {
         width: 50%;
@@ -1390,6 +1373,12 @@ li>p>i {
     .presentation {
         background-position-y: 1098px;
         background-size: 1665px;
+    }
+    .schedule li {
+        font-size: 18px;
+    }
+    .text-footer {
+        width: 60%;
     }
 }
 

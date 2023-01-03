@@ -24,7 +24,7 @@ $locale = $app->getLocale();
     </div>
 </div>
 <button type="button" class="lcc-button lcc-button--link js-lcc-settings-toggle cookie-settings">
-    <p><i class="fa-solid fa-gear fa-xl"></i>Gérer les cookies</p>
+    <span><i class="fa-solid fa-gear fa-xl"></i>Gérer les cookies</span>
 </button>
 
 <div role="dialog" aria-labelledby="lcc-modal-settings-label" aria-describedby="lcc-modal-settings-desc" aria-modal="true" class="lcc-modal lcc-modal--settings js-lcc-modal js-lcc-modal-settings" style="display: none;">
