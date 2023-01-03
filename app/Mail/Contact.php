@@ -8,7 +8,6 @@ use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class Contact extends Mailable
 {
@@ -34,7 +33,7 @@ class Contact extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address('elwrci1011@gmail.com', 'Administration'),
+            from: new Address('pizziamo.admin@pizziamo-da-gabriele.fr', 'Administration'),
             subject: 'Clé secréte pour l\'administration du site',
         );
     }
