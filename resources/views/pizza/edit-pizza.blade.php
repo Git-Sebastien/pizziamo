@@ -1,11 +1,6 @@
 @extends('layouts.dashboard')
-
+@section('title','Modifier une pizza')
 @section('edit-pizza')
-@if (session()->has('delete'))
-    <div class="alert alert-success">
-        {{ session('delete') }}
-    </div>    
-@endif
 <section class="row main-content">
     <x-layout>
         <article class="col-sm-8 pizzas">
@@ -13,13 +8,13 @@
             @if ($pizza_info->id == $pizza->id )
             @php $pizza_id = isset($pizza->id) ? $pizza->id : "" @endphp
             <h1>{{ $pizza_info->pizza_name }}</h1>
+            <form action="{{ route('edit.pizza',['id'=>$pizza->id]) }}" method="post">
+                @csrf
+                <label for="pizza_price" class="d-inline">Prix : </label>
+                <input type="text" name="pizza_price" id="pizza_price" class="mb-4" value="{{ $pizza_info->pizza_price }}"> €
+                <button class="btn btn-primary">Changer le prix</button>
+            </form>
             <ul class="list-group mt-5 d-block">
-                <form action="{{ route('edit.pizza',['id'=>$pizza->id]) }}" method="post">
-                    @csrf
-                    <p class="d-inline">Prix : </p>
-                    <input type="text" name="pizza_price" id="" class="mb-4" value="{{ $pizza_info->pizza_price }}"> €
-                    <button class="btn btn-primary">Changer le prix</button>
-                </form>
                 @foreach ($pizza->ingredients as $ingredient)
                 <li class="list-group-item mb-3">{{ $ingredient->ingredient_name }}
                     <form action="{{ route('ingredient.delete',['id'=>$pizza->id,'ingredient'=> $ingredient->pivot->ingredient_id ]) }}" method="post" class="d-inline">@csrf
@@ -33,22 +28,22 @@
             @endforeach
             <form action="{{ route('edit.pizza',$pizza->id) }} " method="post">
                 @csrf
-                <label for="pizza-name" class="text-center"><strong>Ajouter un ingredient</strong></label>
+                <p class="text-center"><strong>Ajouter un ingredient</strong></p>
                 <div class="wrapper ingredient-list">
                     @foreach ($ingredient_types as $ingredient_type)
-                        <div class="vegetable p-3 border border-dark">
-                            <h3>{{ $ingredient_type->ingredient_type }}</h3>
-                            <ul class="d-block">
-                                @foreach ($ingredients as $ingredient)
-                                    @if ($ingredient->fk_ingredient_type_id == $ingredient_type->id )
-                                    <li class="list-group-item list-checkbox">
-                                        <input type="checkbox" name="ingredients_id[]" id="" value="{{ $ingredient->id }}"> {{ $ingredient->ingredient_name }}
-                                        <input type="hidden" name="pizza_id" value="{{ $pizza->id }}">
-                                    </li>
-                                    @endif
-                                @endforeach
-                            </ul>
-                        </div>
+                    <div class="vegetable p-3 border border-dark">
+                        <h3>{{ $ingredient_type->ingredient_type }}</h3>
+                        <ul class="d-block">
+                            @foreach ($ingredients as $ingredient)
+                            @if ($ingredient->fk_ingredient_type_id == $ingredient_type->id )
+                            <li class="list-group-item list-checkbox">
+                                <input type="checkbox" name="ingredients_id[]" value="{{ $ingredient->id }}"> {{ $ingredient->ingredient_name }}
+                                <input type="hidden" name="pizza_id" value="{{ $pizza->id }}">
+                            </li>
+                            @endif
+                            @endforeach
+                        </ul>
+                    </div>
                     @endforeach
                 </div>
                 <button type="submit" class="btn btn-success btn-sm">Ajouter les ingrédients</button>

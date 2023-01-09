@@ -367,9 +367,9 @@ class DashboardController extends Controller
     public function deletePermanently(int $id, string $table): RedirectResponse
     {
         $table_to_singular = Str::singular($table);
-        $format_table_name = $table_to_singular . '_' . 'name';
+        $format_table_name = $table_to_singular . '_' . 'name'; //pizza_name
         $item_name = DB::table($table)->select($format_table_name)->where('id', '=', $id)->get();
-        $deleted = DB::table($table)->select('$format_table_name')->where('id', '=', $id)->delete();
+        $deleted = DB::table($table)->select('$format_table_name')->where('id', '=', $id)->delete(); //comment variable
         return redirect('dashboard')->with('delete', '' . $item_name[0]->$format_table_name . ' a été supprimer définitivement avec succés');
     }
 
@@ -397,6 +397,12 @@ class DashboardController extends Controller
         return redirect('dashboard')->with('delete', $model_to_delete->$value . ' a été supprimé avec succés');
     }
 
+    /**
+     * Cette methode fais telle chose
+     *
+     * @param  mixed $request
+     * @return void
+     */
     // public function pizzas(Request $request)
     // {
     //     $ingredient_fetch = $request->ingredient;

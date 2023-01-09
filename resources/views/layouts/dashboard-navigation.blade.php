@@ -9,23 +9,23 @@
         </form>
         @endif
         <a href="{{ route('register') }}" class="d-block">Créer un nouvel utilisateur</a>
+        <h3>Pizza</h3>
         <ul>
-            <h3>Pizza</h3>
             <li><a href="{{ route('pizza.add') }}">Ajouter une pizza</a></li>
             <li><a href="{{ route('ajouter.ingredient') }}">Ajouter un ingredient</a></li>
             <li><a href="{{ route('ingredients.delete-permanently') }}">Suprimer un ingrédient</a></li>
             <li> <a href="{{ route('item.deleted') }}">Les éléments non disponible</a></li>
         </ul>
+        <h3>Dessert</h3>
         <ul>
-            <h3>Dessert</h3>
             <li><a href="{{ route('ajouter.dessert') }}">{{ __('Ajouter un dessert') }}</a></li>
         </ul>
+        <h3>Boissons</h3>
         <ul>
-            <h3>Boissons</h3>
             <li><a href="{{ route('ajouter.drink') }}">Ajouter une boisson</a></li>
         </ul>
+        <h3>Plats maisons</h3>
         <ul>
-            <h3>Plats maisons</h3>
             <li><a href="{{ route('ajouter.dish') }}">Ajouter un plat</a></li>
         </ul>
         <h3>Allez a</h3>

@@ -1,4 +1,4 @@
-<span class="logo"><img src="{{ asset('images/logo-pizziamo.webp') }}" alt="Logo Pizziamo da Gabriele"></span>
+<span class="logo"><a href="{{ route('home.index')}}"><img src="{{ asset('images/logo-pizziamo.webp') }}" alt="Logo Pizziamo da Gabriele"></a></span>
 <header class="main-header" id="main-header">
     <nav class="top-nav" id="top-nav">
         <ul>

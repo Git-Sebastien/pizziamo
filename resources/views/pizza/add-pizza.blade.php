@@ -1,19 +1,20 @@
 @extends('layouts.dashboard')
 
+@section('title','Ajouter une pizza')
 
 @section('add-pizza')
 <section class="row main-content">
     <x-layout>
         <article class="col-sm-8 pizzas">
             <h1>Ajouter une pizza</h1>
-            <form action="{{ route('pizza.create-checkbox') }}" method="post" class="p-5">
+            <form action="{{ route('pizza.create-checkbox') }}" method="post" class="p-5" id="composition">
                 @csrf
                 <label for="pizza-name" class="d-block">Nom de la pizza</label>
-                <input type="text" name="pizza-name" required>
+                <input type="text" name="pizza-name" id="pizza-name" required>
                 <label for="pizza-price" class="d-block"><strong>Prix</strong></label>
                 <input type="text" name="pizza-price" id="pizza-price" required>€
                 <label for="category" class="d-block"><strong>Catégories</strong></label>
-                <select name="category-name" id=""  class="mb-5" required>
+                <select name="category-name" class="mb-5"  id="category" required>
                     <option value="">Choisir une catégorie</option>
                     @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->category_name }}</option>
@@ -28,9 +29,7 @@
                 <div id="choosen">
 
                 </div> --}}
-                <label for="composition" class="d-block">
-                    <h2>Tous les ingrédients</h2>
-                </label>
+                <h2>Tous les ingrédients</h2>
                 <div class="wrapper row">
                     @foreach ($ingredient_types as $ingredient_type)
                     <div class="vegetable p-3 border border-dark col-lg-3 col-md-6">
@@ -39,7 +38,7 @@
                             @foreach ($ingredients as $ingredient)
                             @if ($ingredient->fk_ingredient_type_id == $ingredient_type->id )
                             <li class="list-group-item list-checkbox">
-                                <input type="checkbox" name="ingredients[]" id="" value="{{ $ingredient->id }}"> {{ $ingredient->ingredient_name }}
+                                <input type="checkbox" name="ingredients[]" value="{{ $ingredient->id }}"> {{ $ingredient->ingredient_name }}
                             </li>
                             @endif
                             @endforeach

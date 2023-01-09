@@ -22,6 +22,7 @@ class HomeController extends Controller
             $request->session()->pull('personal_token');
             $request->session()->pull('token');
         }
+
         $pizzas = $this->sortModelWithRelation(Pizza::class, 'ingredients');
 
         $all_models = $this->sortModel(

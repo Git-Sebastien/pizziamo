@@ -10,9 +10,9 @@
             <form action="{{ route('dish.add') }}" method="post" class="form-dashboard">
                 @csrf
                 <label for="dish_name">Nom du plat</label>
-                <input type="text" name="dish_name" id="" required>
-                <label for="dish_name">Prix</label>
-                <input type="text" name="dish_price" id="" required>
+                <input type="text" name="dish_name" id="dish_name" required>
+                <label for="dish_price">Prix</label>
+                <input type="text" name="dish_price" id="dish_price" required>
                 <button type="submit" class="btn btn-success btn-sm">Ajouter</button>
             </form>
             <hr>

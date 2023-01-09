@@ -194,6 +194,10 @@ html {
     background-color: seashell;
 }
 
+.btn-action {
+    margin-top: 1.2em;
+}
+
 .recap-all {
     width: 90vw;
     margin: 0 auto;
@@ -439,7 +443,7 @@ article {
     }
 }
 
-@media screen and (min-width:791px) {
+@media screen and (min-width:846px) {
     .dashboard-body aside {
         width: auto;
         position: sticky;

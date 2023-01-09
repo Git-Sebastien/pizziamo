@@ -9,9 +9,6 @@
 // let array = []
 
 // ingredientSearch.addEventListener('keyup', () => {
-
-
-
 //     fetch(url, {
 //             headers: {
 //                 "Content-Type": "application/json",

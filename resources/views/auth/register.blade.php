@@ -42,13 +42,15 @@
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('Déjà enregistré?') }}
                 </a>
+                <a href="{{ route('dashboard.index') }}" class="d-block mt-3 mb-3"> Retour au tableau de bord</a>
 
                 <x-primary-button class="ml-4 btn btn-primary">
-                    {{ __('Register') }}
+                    {{ __('S\'enregistrer') }}
                 </x-primary-button>
             </div>
         </form>
+        
     </x-auth-card>
 </x-guest-layout>

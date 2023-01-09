@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\Pizza\PizzaController;
 
 /*
@@ -67,7 +66,7 @@ Route::middleware('token.validator')->group(function () {
 
     Route::post('/add-dessert', [DashboardController::class, 'addDessert'])->name('dessert.add');
 
-    Route::post('delete-ingredient/{id}/{table}', [DashboardController::class, 'deletePermanently'])->name('ingredient.delete-permanently');
+    Route::post('delete-ingredients/{id}/{table}', [DashboardController::class, 'deletePermanently'])->name('ingredient.delete-permanently');
 
     Route::post('/editer-plats/{id}', [DashboardController::class, 'updateDish'])->name('dish.update');
 
